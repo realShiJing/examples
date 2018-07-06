@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 /**
  * @author yangshijing
  * @desc Spring SpringMvc mybatis Helloworld
- * @created 2018/5/17 0017
+ * @created 2018/5/17
  */
 @Controller
 @RequestMapping("/hello")

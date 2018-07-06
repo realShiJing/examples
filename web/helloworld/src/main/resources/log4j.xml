@@ -4,7 +4,7 @@
 <log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/"
                      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                      xsi:schemaLocation="http://jakarta.apache.org/log4j/ ">
-
+    <!--输出方式ConsoleAppender控制台输出-->
     <appender name="STDOUT" class="org.apache.log4j.ConsoleAppender">
         <param name="Encoding" value="UTF-8"/>
         <layout class="org.apache.log4j.PatternLayout">
