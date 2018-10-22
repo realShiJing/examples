@@ -31,7 +31,7 @@ public class FileController {
      */
     @ResponseBody
     @RequestMapping(value = "/upload")
-    public void uploadFile(HttpSession session, MultipartFile myfile) throws IllegalStateException, IOException{
+    public String uploadFile(HttpSession session, MultipartFile myfile) throws IllegalStateException, IOException{
         //原始名称
         String oldFileName = myfile.getOriginalFilename(); //获取上传文件的原名
         //存储图片的物理路径
@@ -47,12 +47,14 @@ public class FileController {
             //将新图片名称返回到前端
             Map<String,Object> map=new HashMap<String,Object>();
             map.put("success", "成功啦");
+            return "You successfully uploaded file=" +  myfile.getOriginalFilename();
            // map.put("imgUrl",newFileName);
             //return  map;
         }else{
             Map<String,Object> map=new HashMap<String,Object>();
             map.put("error","图片不合法");
             //return map;
+            return "You failed to upload " +  myfile.getOriginalFilename() + " => ";
         }
     }
 }
