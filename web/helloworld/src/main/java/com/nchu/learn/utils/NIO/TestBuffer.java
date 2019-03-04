@@ -1,6 +1,9 @@
 package com.nchu.learn.utils.NIO;
 
 import java.nio.ByteBuffer;
+import java.util.Arrays;
+
+import java.lang.String;
 import org.junit.jupiter.api.Test;
 
 /*
@@ -43,10 +46,21 @@ public class TestBuffer {
 		
 		System.out.println(buf.isDirect());
 	}
+
+	@Test
+	public void test4(){
+		ByteBuffer byteBuffer = ByteBuffer.allocate(1024);
+		byteBuffer.put("yangshijing".getBytes());
+		byteBuffer.flip();
+		byte[]  bt = new byte[byteBuffer.limit()];
+		System.out.print(new String(bt, 0, bt.length));
+		byteBuffer.get(bt);
+		System.out.print(new String(bt, 0, bt.length));
+	}
 	
 	@Test
 	public void test2(){
-		String str = "abcde";
+		java.lang.String str = "abcde";
 		
 		ByteBuffer buf = ByteBuffer.allocate(1024);
 		
@@ -63,7 +77,7 @@ public class TestBuffer {
 		buf.mark();
 		
 		buf.get(dst, 2, 2);
-		System.out.println(new String(dst, 2, 2));
+		System.out.println(new String(dst, 0b10, 2));
 		System.out.println(buf.position());
 		
 		//reset() : 恢复到 mark 的位置

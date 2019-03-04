@@ -12,7 +12,7 @@ import java.util.Iterator;
 /**
  * NIO服务端
  * 
- * @author -琴兽-
+ * @author
  */
 public class NIOServer {
 	// 通道管理器
@@ -54,10 +54,9 @@ public class NIOServer {
 			Iterator<?> ite = this.selector.selectedKeys().iterator();
 			while (ite.hasNext()) {
 				SelectionKey key = (SelectionKey) ite.next();
-				// 删除已选的key,以防重复处理
-				ite.remove();
-
 				handler(key);
+				// 删除已选的key,以防重复处理 ？
+				ite.remove();
 			}
 		}
 	}
@@ -94,7 +93,7 @@ public class NIOServer {
 
 		// 在这里可以给客户端发送信息哦
 		System.out.println("新的客户端连接");
-		// 在和客户端连接成功之后，为了可以接收到客户端的信息，需要给通道设置读的权限。
+		// 在和客户端连接成功之后，为了可以接收到客户端的信息，需要给通道设置读的权限。？
 		channel.register(this.selector, SelectionKey.OP_READ);
 	}
 

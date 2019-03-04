@@ -1,14 +1,18 @@
 package com.nchu.learn.utils.netty;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 /**
  * 传统socket服务端
- * @author -琴兽-
+ * @author yangsj
  *
+ * 传统IO的特点：
+ * 1、单线程情况下只能有一个客户端
+ * 2、用线程池可以有多个客户端连接，但是非常消耗性能
  */
 public class OioServer {
 
@@ -44,16 +48,12 @@ public class OioServer {
 			try {
 				byte[] bytes = new byte[1024];
 				InputStream inputStream = socket.getInputStream();
-				
-				while(true){
-					//读取数据（阻塞）
-					int read = inputStream.read(bytes);
-					if(read != -1){
-						System.out.println(new String(bytes, 0, read));
-					}else{
-						break;
+				OutputStream outputStream = socket.getOutputStream();
+				int len = -1;
+				while( (len = inputStream.read(bytes))!= -1){
+						System.out.println(new String(bytes, 0, len));
+						outputStream.write("Hello\n".getBytes());
 					}
-				}
 			} catch (Exception e) {
 				e.printStackTrace();
 			}finally{

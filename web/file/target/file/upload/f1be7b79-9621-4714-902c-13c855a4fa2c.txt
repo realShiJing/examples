@@ -1,0 +1,16 @@
+远期委托轮询分析
+RoundFwdRateManager Map<String, List<ForwardRate>> <渠道,<牌价>>                                                rateCodeMap
+
+ForwardRoundManager Map<String, Map<String,String>> <渠道,<货币对,货币对>>                                       rateCodeMap
+
+ForexOrderFwdMap   Map<String, RoundOrderList> <"chanelId+rateCode+OrderType",<RoundOrderList>> XFUNDSHKD/JPY1  orexOrderFwdMap
+                   Map<String, List<RoundFwdRate>> <货币对,<牌价>>                                               rateCodeorderMap
+                   Map<String, List<ForexMemoryOrder>>                                                          roundOrderReloadMap
+                   Map<String, RoundOrderList>	<"chanelId+rateCode+OrderType",<RoundOrderList>>	            orderMap
+
+                   jar -cvf ecas.war *.*
+
+                   /opt/IBM/WebSphere/AppServer/profiles/AppSvr01/logs/zs_server
+
+
+                   http://192.168.193.51:9060/ibm/console/login.do

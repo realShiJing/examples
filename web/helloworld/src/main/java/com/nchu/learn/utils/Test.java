@@ -2,8 +2,8 @@ package com.nchu.learn.utils;
 
 import com.alibaba.fastjson.JSONObject;
 
+import java.math.BigDecimal;
 import java.util.*;
-import java.util.stream.Collectors;
 
 /**
  * 列表排序
@@ -17,7 +17,9 @@ public class Test {
     }
 
     static String str = "{'1w':'1','2w':'2'}";
+    private void guavaTest(){
 
+    }
 
     public static void main(String[] args){
         Test test = new Test("1w",1);
@@ -28,19 +30,26 @@ public class Test {
 
         list.add(test);
         list.add(test1);
-//
-//        Collections.sort(list, new Comparator<Test>() {
-//            JSONObject json = JSONObject.parseObject(str);
-//            @Override
-//            public int compare(Test o1, Test o2) {
-//                return json.getInteger(o1.name) - json.getInteger(o2.name) ;
-//            }
-//        });
 
-        Collections.sort(list,(x,y) -> {
+        Collections.sort(list, new Comparator<Test>() {
+            JSONObject json = JSONObject.parseObject(str);
+            @Override
+            public int compare(Test o1, Test o2) {
+                return json.getInteger(o1.name) - json.getInteger(o2.name) ;
+            }
+        });
+        JSONObject json = JSONObject.parseObject(str);
+        Integer integer = json.getInteger("1w");
+        BigDecimal bigDecimal = json.getBigDecimal("1w");
+        Boolean aBoolean = json.getBoolean("1w");
+        Byte aByte = json.getByte("1w");
+        Date date = json.getDate("1w");
+
+
+        /*Collections.sort(list,(x,y) -> {
             JSONObject json = JSONObject.parseObject(str);
             return json.getInteger(x.getName()) - json.getInteger(y.getName());
-        });
+        });*/
 
        /* System.out.println(list);
         Map<Integer,String> map = list.stream().filter(o -> o.name.length() > 0)
