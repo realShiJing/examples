@@ -13,6 +13,7 @@
         <module>thread</module>
         <module>algorithm</module>
         <module>webService</module>
+        <module>patterns</module>
     </modules>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
