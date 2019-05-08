@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class BubbleSort {
 
-    public static void bubble_sort(int[] arr) {
+    public static void bubbleSort(int[] arr) {
         int i, j, temp, len = arr.length;
         //外层循环代表排序趟数，一共要进行len-1趟排序
         for (i = 0; i < len - 1; i++)
@@ -19,7 +19,7 @@ public class BubbleSort {
     public static void main(String[] args){
         // 初始化一个序列
         int[] array = {1, 3, 4, 5, 2, 6, 9, 7, 8, 0};
-        bubble_sort(array);
+        bubbleSort(array);
         System.out.print(Arrays.toString(array));
     }
 }

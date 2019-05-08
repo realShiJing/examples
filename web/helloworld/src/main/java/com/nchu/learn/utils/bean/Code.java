@@ -1,49 +1,43 @@
-package com.nchu.learn.utils;
+package com.nchu.learn.utils.bean;
 
 import com.alibaba.fastjson.JSONObject;
+import org.junit.Test;
 
-import java.math.BigDecimal;
 import java.util.*;
 
 /**
  * 列表排序
  */
-public class Test {
+public class Code {
+
     public String name;
 
     public int code;
-    public Test(String name) {
+    public Code(String name) {
         this.name = name;
     }
 
-    static String str = "{'1w':'1','2w':'2'}";
-    private void guavaTest(){
+    public String str = "{'1w':'1','2w':'2'}";
 
-    }
+    @Test
+    public  void Test(String[] args){
+        Code test = new Code("1w",1);
 
-    public static void main(String[] args){
-        Test test = new Test("1w",1);
+        Code test1 = new Code("2w",2);
 
-        Test test1 = new Test("2w",2);
-
-        List<Test> list = new  ArrayList<Test>();
+        List<Code> list = new  ArrayList<Code>();
 
         list.add(test);
         list.add(test1);
 
-        Collections.sort(list, new Comparator<Test>() {
+        Collections.sort(list, new Comparator<Code>() {
             JSONObject json = JSONObject.parseObject(str);
             @Override
-            public int compare(Test o1, Test o2) {
+            public int compare(Code o1, Code o2) {
                 return json.getInteger(o1.name) - json.getInteger(o2.name) ;
             }
         });
-        JSONObject json = JSONObject.parseObject(str);
-        Integer integer = json.getInteger("1w");
-        BigDecimal bigDecimal = json.getBigDecimal("1w");
-        Boolean aBoolean = json.getBoolean("1w");
-        Byte aByte = json.getByte("1w");
-        Date date = json.getDate("1w");
+
 
 
         /*Collections.sort(list,(x,y) -> {
@@ -61,6 +55,8 @@ public class Test {
     }
 
 
+
+//---------------------------------------------//
     public String getName() {
         return name;
     }
@@ -77,15 +73,8 @@ public class Test {
         this.code = code;
     }
 
-    public static String getStr() {
-        return str;
-    }
 
-    public static void setStr(String str) {
-        Test.str = str;
-    }
-
-    public Test(String name, int code) {
+    public Code(String name, int code) {
         this.name = name;
         this.code = code;
     }
