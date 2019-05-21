@@ -353,6 +353,59 @@ public class APP {
         System.out.println(b3+b6);*/
     }
 
+    /**
+     *@description: 公积金可贷额度计算
+     *@auther: yangsj
+     *@created: 2019/5/13 14:32
+     */
+    @Test
+    public void test17(){
+         Integer months = 1;//缴纳公积金月数
+         Integer multiple = 15;//倍数，杭州市主城区、萧山区、余杭区、富阳区倍数是15
+         Integer aFund = 1248;//每个月的公积金缴存,单位元
+         Integer mount = 500000;//可贷额度，职工本人符合贷款申请条件的，最高可贷50万
+         Integer aFundSum =0;//公积金总额
+         Integer sum = 0;//月均缴存余额总值
+         Integer value = Math.floorDiv(mount,multiple); //月均缴存余额阀值
+         System.out.println("--------》月均缴存余额阀值："+value);
+         Integer remainingSum = 0 ;
+         while (remainingSum < value) {
+             aFundSum = Math.multiplyExact(months, aFund);
+             if(months >=12){
+                 for (int i = 1; i <= 12; i++) {
+                     Integer monthAmount = Math.subtractExact(aFundSum, Math.multiplyExact(aFund, i-1));
+                     System.out.println("第" + (13 - i) + "个月汇缴：" + monthAmount);
+                     sum = Math.addExact(monthAmount, sum);
+                 }
+             }
+             months++;
+             remainingSum = Math.floorDiv(sum, 12);
+             sum = 0;
+         }
+         System.out.print("若要贷款50万，需每个月缴纳公积金：" + aFund+"；共计："+months+"个月！");
+    }
+    @Test
+    public void  calendarTest(){
+        //Calendar ---> Date
+        Calendar calendar = Calendar.getInstance();
+        Date date = calendar.getTime();
+
+        System.out.println(date);
+
+        //Date ---> Calendar
+        Date date1 = new Date();
+        Calendar calendar1  = Calendar.getInstance();
+        calendar.setTime(date1);
+
+        System.out.println(calendar1);
+
+        System.out.println(calendar1.get(Calendar.YEAR)+"年"+(calendar1.get(Calendar.MONTH)+1)+"月"+calendar1.get(Calendar
+                .DATE)+"日");
+
+        ArrayList arrayList = new ArrayList();
+
+        LinkedList<String> linkedList = new LinkedList<>();
+    }
 
 }
 
