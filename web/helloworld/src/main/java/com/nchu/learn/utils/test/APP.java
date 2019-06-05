@@ -382,7 +382,7 @@ public class APP {
              remainingSum = Math.floorDiv(sum, 12);
              sum = 0;
          }
-         System.out.print("若要贷款50万，需每个月缴纳公积金：" + aFund+"；共计："+months+"个月！");
+         System.out.print("若要贷款50万，需每个月缴纳公积金：" + aFund+"；共计："+(months-1)+"个月！");
     }
     @Test
     public void  calendarTest(){
