@@ -356,21 +356,22 @@ public class APP {
     /**
      *@description: 公积金可贷额度计算
      *@auther: yangsj
-     *@created: 2019/5/13 14:32
+     *@created: 2019/6/13 17:40
      */
     @Test
     public void test17(){
          Integer months = 1;//缴纳公积金月数
          Integer multiple = 15;//倍数，杭州市主城区、萧山区、余杭区、富阳区倍数是15
-         Integer aFund = 1248;//每个月的公积金缴存,单位元
+         Integer aFund = 1960;//每个月的公积金缴存,单位元
          Integer mount = 500000;//可贷额度，职工本人符合贷款申请条件的，最高可贷50万
          Integer aFundSum =0;//公积金总额
          Integer sum = 0;//月均缴存余额总值
+         Integer balance = 13728 ; //公积金账户余额
          Integer value = Math.floorDiv(mount,multiple); //月均缴存余额阀值
          System.out.println("--------》月均缴存余额阀值："+value);
          Integer remainingSum = 0 ;
          while (remainingSum < value) {
-             aFundSum = Math.multiplyExact(months, aFund);
+             aFundSum = Math.multiplyExact(months, aFund) + balance;
              if(months >=12){
                  for (int i = 1; i <= 12; i++) {
                      Integer monthAmount = Math.subtractExact(aFundSum, Math.multiplyExact(aFund, i-1));
@@ -382,7 +383,7 @@ public class APP {
              remainingSum = Math.floorDiv(sum, 12);
              sum = 0;
          }
-         System.out.print("若要贷款50万，需每个月缴纳公积金：" + aFund+"；共计："+(months-1)+"个月！");
+         System.out.print("贷款50万，还需每个月缴纳公积金：" + aFund+"；共计："+(months-1)+"个月！");
     }
     @Test
     public void  calendarTest(){

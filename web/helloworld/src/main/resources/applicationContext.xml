@@ -3,15 +3,16 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
        xmlns:mybatis-spring="http://mybatis.org/schema/mybatis-spring"
-       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:tx="http://www.springframework.org/schema/tx" xmlns:aop="http://www.springframework.org/schema/aop"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring-1.2.xsd
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
-		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
 
-    <!-- Spring希望管理所有的业务逻辑组件，等。。。 -->
-    <context:component-scan base-package="com.nchu.mvc"></context:component-scan>
-
+    <!-- 开启注解扫描 -->
+    <context:component-scan base-package="com.nchu"></context:component-scan>
+    <!--开启Spring Aop注释自动代理-->
+    <aop:aspectj-autoproxy/>
     <!-- 引入数据库的配置文件 -->
     <context:property-placeholder location="classpath:db.properties" />
     <!-- Spring用来控制业务逻辑。数据源、事务控制、aop -->
