@@ -1,4 +1,4 @@
-package com.nuch.tree.binarySearchTree;
+package com.nchu.tree.binarySearchTree;
 
 /**
  * @Decription 二叉搜索树（有序二叉树）：中序遍历有序（左根右）
