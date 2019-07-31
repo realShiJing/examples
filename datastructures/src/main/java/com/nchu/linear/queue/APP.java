@@ -1,7 +1,5 @@
 package com.nchu.linear.queue;
 
-import org.junit.Test;
-
 import java.util.Scanner;
 
 /**
