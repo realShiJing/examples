@@ -31,6 +31,7 @@ public class SingleLinkedList {
         //辅助节点，用于保存单链表最后一个节点
         Node temp = headNode;
         while (true){
+            //如果辅助节点没有下个节点，代表已经遍历到最后一个节点
             if(temp.next == null){
                 break;
             }
