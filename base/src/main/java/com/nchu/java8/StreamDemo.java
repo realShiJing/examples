@@ -3,7 +3,9 @@ package com.nchu.java8;
 import org.junit.Test;
 
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 /**
@@ -168,5 +170,139 @@ public class StreamDemo {
                 .peek(System.out::println)
                 .collect(Collectors.toList());
     }
+
+    /**
+     * @Description  二者都是遍历操作，从结果是可以看出来，如果是单线程（也就是不加parallel方法的情况）那么二者结果是一致的，
+     * 但是如果采用并行遍历，那么就有区别了，
+     * forEach并行遍历不保证顺序（顺序随机）,
+     * forEachOrdered却是保证顺序来进行遍历的
+     * @Author yangsj
+     * @Date 2019/8/6 17:33
+     **/
+    @Test
+    public void forEachTest(){
+        List<String> list = Arrays.asList("123","456","789","1011","nachanghangkong","nchu","realshi","138989898");
+        list.stream().parallel().forEach(System.out::println);
+        System.out.println("--------------");
+        list.stream().parallel().forEachOrdered(System.out::println);
+    }
+
+    /**
+     * @Description  toArray有两个方法，一个是无参方法，一个有参方法。
+     * 无参方法返回的只能是Object[]数组类型，而有参方法，可以指定结果数组类型，此乃二者区别。
+     * @Author yangsj
+     * @Date 2019/8/6 17:33
+     **/
+    @Test
+    public void toArrayTest(){
+        List<String> list = Arrays.asList("123","456","789","1011","nachanghangkong","nchu","realshi","138989898");
+        Object[] objects = list.stream().filter(l -> l.length() > 4).toArray();
+        String[] ss = list.stream().filter(l -> l.length() > 4).toArray(String[]::new);
+    }
+
+
+    
+    /**
+     * @Description 通过给定的比较器，得出流中最大\最小的元素，
+     * 为避免null返回，这里使用Optional来封装返回值
+     * @Author yangsj
+     * @Date 2019/8/6 16:07
+     **/
+    @Test
+    public void maxMinTest(){
+        List<String> list = Arrays.asList("123","456","789","1011","nachanghangkong","nchu","realshi","138989898");
+        Optional<String> max = list.stream().max(Comparator.comparingInt(String::length));
+        Optional<String> min = list.stream().min(Comparator.comparingInt(String::length));
+        System.out.println(max);
+        System.out.println("---------");
+        System.out.println(min);
+    }
+
+    
+    /**
+     * @Description count是无参方法，用于计数，返回流中元素个数。
+     * @Author yangsj
+     * @Date 2019/8/6 16:17
+     **/
+    @Test
+    public void countTest(){
+        List<String> list = Arrays.asList("123","456","789","1011","nachanghangkong","nchu","realshi","138989898");
+        long count = list.stream().count();
+        System.out.println(count);
+    }
+
+    
+    /**
+     * @Description 该方法需要一个Predicate参数，用于校验流中的元素，
+     * 只要有一个满足规则，则返回true，全不满足，返回false。
+     * @Author yangsj
+     * @Date 2019/8/6 16:18
+     **/
+    @Test
+    public void anyMatchTest(){
+        List<String> list = Arrays.asList("123","456","789","1011","nachanghangkong","nchu","realshi","138989898");
+        boolean b1 = list.stream().anyMatch(l -> l.length() > 2);
+        System.out.println(b1);
+        boolean b2 = list.stream().anyMatch(l -> l.length() > 20);
+        System.out.println(b2);
+    }
+    
+    /**
+     * @Description 用于校验流中的所有元素，
+     * 只有全部满足规则才能返回true，只要有一个不满足则返回false。
+     * @Author yangsj
+     * @Date 2019/8/6 16:20
+     **/
+    @Test
+    public void allMatchTest(){
+        List<String> list = Arrays.asList("123","456","789","1011","nachanghangkong","nchu","realshi","138989898");
+        boolean b1 = list.stream().allMatch(l -> l.length() > 0);
+        System.out.println(b1);
+        boolean b2 = list.stream().allMatch(l -> l.length() > 3);
+        System.out.println(b2);
+    }
+
+    
+    /**
+     * @Description 用于校验流中的所有元素,
+     * 只有所有元素都不满足规则的情况下返回true，否则返回false。
+     * @Author yangsj
+     * @Date 2019/8/6 16:27
+     **/
+    @Test
+    public void noneMatchTest(){
+        List<String> list = Arrays.asList("123","456","789","1011","nachanghangkong","nchu","realshi","138989898");
+        boolean b1 = list.stream().noneMatch(l -> l.length() > 30);
+        System.out.println(b1);
+        boolean b2 = list.stream().noneMatch(l -> l.length() > 3);
+        System.out.println(b2);
+    }
+
+    
+    /**
+     * @Description 该方法无参数，主要用于获取流中的第一个元素
+     * @Author yangsj
+     * @Date 2019/8/6 16:28
+     **/
+    @Test
+    public void findFirstTest(){
+        List<String> list = Arrays.asList("123","456","789","1011","nachanghangkong","nchu","realshi","138989898");
+        Optional<String> first = list.stream().parallel().findFirst();
+        System.out.println(first);
+    }
+
+
+    /**
+     * @Description 该方法无参数，主要用于获取流中的任一元素。
+     * @Author yangsj
+     * @Date 2019/8/6 16:33
+     **/
+    @Test
+    public void findanyTest(){
+        List<String> list = Arrays.asList("123","456","789","1011","nachanghangkong","nchu","realshi","138989898");
+        Optional<String> any = list.stream().parallel().findAny();
+        System.out.println(any);
+    }
+
 
 }
