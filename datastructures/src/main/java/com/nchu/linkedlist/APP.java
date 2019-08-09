@@ -18,8 +18,8 @@ public class APP {
     public void TestSigleLinkedList(){
         SingleLinkedList list = new SingleLinkedList();
 
-        list.show();
-        System.out.println("---------------");
+        /*list.show();
+        System.out.println("---------------");*/
         SingleLinkedList listSort = new SingleLinkedList();
         listSort.addSort(2);
         listSort.addSort(1);
@@ -28,8 +28,18 @@ public class APP {
         listSort.addSort(4);
         listSort.addSort(5);
         listSort.addSort(6);
-        listSort.show();
 
+        //listSort.show();
+
+       /* listSort.update(listSort.headNode,2);
+        listSort.show();*/
+       /* listSort.delete(listSort.headNode,7);
+        listSort.show();*/
+        /*int size = listSort.size();
+        System.out.println(size);*/
+        listSort.show();
+        int data = listSort.getReciprocal(8);
+        System.out.println(data);
     }
 
 }
