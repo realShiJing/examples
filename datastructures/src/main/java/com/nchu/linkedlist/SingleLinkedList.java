@@ -168,4 +168,33 @@ public class SingleLinkedList {
         }
         return temp.data;
     }
+
+
+    /**
+     * @Description 单链表的反转
+     * @Author yangsj
+     * @Date 2019/8/13 9:51
+     **/
+    public void reversal(){
+        //翻转链表的临时头结点
+        Node reversalNode = new Node(0);
+        Node temp = headNode.next;
+        //链表为空或者链表只有一个节点，不需要进行翻转处理
+        if(temp == null || temp.next == null){
+           return;
+        }
+        //遍历节点，并翻转
+        while (true){
+            if(temp == null){
+                break;
+            }
+            //保存遍历出节点的下个节点，防止断链
+            Node next = temp.next;
+            //将原链表遍历出的节点 ，添加到翻转头结点的下个节点
+            temp.next = reversalNode.next;
+            reversalNode.next = temp;
+            temp = next;
+        }
+        headNode.next = reversalNode.next;
+    }
 }

@@ -31,15 +31,26 @@ public class APP {
 
         //listSort.show();
 
-       /* listSort.update(listSort.headNode,2);
-        listSort.show();*/
-       /* listSort.delete(listSort.headNode,7);
-        listSort.show();*/
-        /*int size = listSort.size();
-        System.out.println(size);*/
-        listSort.show();
-        int data = listSort.getReciprocal(8);
-        System.out.println(data);
+        // 链表的更新
+//        listSort.update(listSort.headNode,2);
+//        listSort.show();
+
+        //链表的节点删除
+//        listSort.delete(listSort.headNode,7);
+//        listSort.show();
+
+       //链表的长度
+//        int size = listSort.size();
+//        System.out.println(size);
+//        listSort.show();
+
+        //链表的倒数第 n 个元素
+//        int data = listSort.getReciprocal(8);
+//        System.out.println(data);
+
+        //链表的翻转
+       listSort.reversal();
+       listSort.show();
     }
 
 }
