@@ -49,8 +49,22 @@ public class APP {
 //        System.out.println(data);
 
         //链表的翻转
-       listSort.reversal();
-       listSort.show();
+       /*listSort.reversal();
+       listSort.show();*/
+       //链表的翻转打印
+//        listSort.reversalPrint();
+        //链表的有序合并（有序）
+        SingleLinkedList list2 = new SingleLinkedList();
+        list2.add(11);
+        list2.add(23);
+        list2.add(19);
+        list2.add(12);
+        list2.add(33);
+        list2.add(10);
+        list2.add(9);
+
+        SingleLinkedList mergeList = listSort.mergeSort(list2);
+        mergeList.show();
     }
 
 }

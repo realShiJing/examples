@@ -1,5 +1,7 @@
 package com.nchu.linkedlist;
 
+import java.util.Stack;
+
 /**
  * @Decription 单链表
  * @Author yangsj
@@ -196,5 +198,63 @@ public class SingleLinkedList {
             temp = next;
         }
         headNode.next = reversalNode.next;
+    }
+
+    /**
+     * @Description 从尾到头打印单链表
+     * 方式1：反向遍历  破坏了原有链表结构
+     * 方式2：Stack栈  保留了原有链表结构
+     * @Author yangsj
+     * @Date 2019/8/14 14:53
+     **/
+    public void reversalPrint(){
+        Stack<Node> stack = new Stack<>();
+        Node temp = headNode.next;
+        if(temp == null){
+            System.out.println("链表为空！");
+            return;
+        }
+
+        while (true){
+            if(temp == null){
+                break;
+            }
+            stack.push(temp);
+            temp = temp.next;
+        }
+
+        while (!stack.empty()){
+            System.out.println(stack.pop());
+        }
+    }
+
+
+    /**
+     * @Description 合并两个单链表，并保持合并后的链表有序
+     * 思路：将两个链表的元素入栈，并出栈有序添加
+     * @Author yangsj
+     * @Date 2019/8/14 15:26
+     **/
+    public SingleLinkedList mergeSort(SingleLinkedList list2){
+        Stack<Node> stack = new Stack<>();
+        //链表一元素入栈
+        Node temp1 = headNode.next;
+        while (temp1 != null){
+            stack.push(temp1);
+            temp1 = temp1.next;
+        }
+        //链表二元素入栈
+        Node temp2 = list2.headNode.next;
+        while (temp2 != null){
+            stack.push(temp2);
+            temp2 = temp2.next;
+        }
+        //声明新链表，并初始头结点
+        SingleLinkedList list = new SingleLinkedList();
+        list.headNode = new Node(0);
+        while(!stack.empty()){
+           list.addSort(stack.pop().data);
+        }
+        return list;
     }
 }
