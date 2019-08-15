@@ -15,7 +15,7 @@ public class APP {
      * @Date 2019/8/1 10:12
      **/
     @Test
-    public void TestSigleLinkedList(){
+    public void testSigleLinkedList(){
         SingleLinkedList list = new SingleLinkedList();
 
         /*list.show();
@@ -65,6 +65,45 @@ public class APP {
 
         SingleLinkedList mergeList = listSort.mergeSort(list2);
         mergeList.show();
+    }
+
+
+    /**
+     * @Description 测试双向链表
+     * @Author yangsj
+     * @Date 2019/8/15 15:07
+     **/
+    @Test
+    public void testDoubleLinkedList(){
+        DoubleLinkedList list = new DoubleLinkedList();
+
+        //无序添加
+       /* list.add(2);
+        list.add(9);
+        list.add(3);
+        list.add(6);
+        list.add(4);
+        list.add(1);
+        list.add(5);
+        list.add(7);*/
+        //遍历双向链表并打印
+        //list.show();
+        //有序添加
+        list.addSort(4);
+        list.addSort(2);
+        list.addSort(9);
+        list.addSort(1);
+        list.addSort(3);
+        list.addSort(4);
+        list.addSort(1);
+        list.addSort(5);
+
+      /*  list.show();
+        //删除
+        list.delete(9);
+        System.out.println("------------------");
+        list.show();*/
+      System.out.println(list.size());
     }
 
 }
