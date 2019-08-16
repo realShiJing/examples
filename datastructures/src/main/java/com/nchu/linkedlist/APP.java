@@ -106,4 +106,28 @@ public class APP {
       System.out.println(list.size());
     }
 
+
+    /**
+     * @Description 测试循环单链表
+     * @Author yangsj
+     * @Date 2019/8/16 11:51
+     **/
+    @Test
+    public void testCycleSingleLinkedList(){
+        CycleSingleLinkedList list = new CycleSingleLinkedList();
+        list.add(1);
+        list.add(6);
+        list.add(9);
+        list.add(3);
+        list.add(2);
+        list.add(4);
+        list.add(7);
+        //list.show();
+        //System.out.println(list.size());
+        //6 3 4 1 2 9 7
+        //list.josephu(1,2);
+        //9 2 7 6 4 3 1
+        list.josephu(2,2);
+    }
+
 }
