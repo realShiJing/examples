@@ -48,7 +48,7 @@ public class ArrayStack implements Stack {
     }
     //入栈
     @Override
-    public void pop(int data){
+    public void push(int data){
         if(isFull()){
             System.out.println("栈已满！");
             return;
@@ -59,7 +59,7 @@ public class ArrayStack implements Stack {
 
     //出栈
     @Override
-    public int push(){
+    public int pop(){
         if(isEmpty()){
            throw new RuntimeException("栈已空！");
         }

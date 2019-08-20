@@ -73,7 +73,7 @@ public class LinkedStack implements Stack {
      * @Date 2019/8/19 16:59
      **/
     @Override
-    public void pop(int data){
+    public void push(int data){
         if(isFull()){
             System.out.println("栈已满！");
             return;
@@ -101,7 +101,7 @@ public class LinkedStack implements Stack {
      * @Date 2019/8/19 17:10
      **/
     @Override
-    public int push(){
+    public int pop(){
         if(isEmpty()){
             throw new RuntimeException("栈为空！");
         }

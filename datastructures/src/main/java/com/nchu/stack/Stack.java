@@ -6,7 +6,7 @@ package com.nchu.stack;
  * @Author yangsj
  * @Date 2019/8/19 17:44
  **/
-interface Stack {
+public  interface Stack {
 
 
    /**
@@ -30,7 +30,7 @@ interface Stack {
      * @Author yangsj
      * @Date 2019/8/19 17:43
      **/
-    void pop(int n);
+    void push(int n);
 
 
 
@@ -39,7 +39,7 @@ interface Stack {
     * @Author yangsj
     * @Date 2019/8/19 17:44
     **/
-    int push();
+    int pop();
 
 
    /**

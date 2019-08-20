@@ -14,7 +14,7 @@ public class APP {
         //测试数组实现栈
         Stack stack = new ArrayStack(3);
         //测试双链表实现栈
-        //stack = new LinkedStack(3);
+        stack = new LinkedStack(3);
         testStack(stack);
 
     }
@@ -31,21 +31,21 @@ public class APP {
         char key = ' ';
         while (loop){
             System.out.println("show：");
-            System.out.println("pop：");
             System.out.println("push：");
+            System.out.println("pop：");
             System.out.println("exit：");
             key = scanner.next().charAt(0);
             switch(key){
                 case 's':
                     stack.show();
                     break;
-                case 'o':
-                    int data = scanner.nextInt();
-                    stack.pop(data);
-                    break;
                 case 'p':
+                    int data = scanner.nextInt();
+                    stack.push(data);
+                    break;
+                case 'o':
                     try{
-                        int value = stack.push();
+                        int value = stack.pop();
                         System.out.println(value);
                     }catch (Exception e){
                         System.out.println(e.getMessage());
