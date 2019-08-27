@@ -8,6 +8,8 @@ import com.nchu.base.common.Week;
 import com.nchu.test.OutSide.Inside;
 import org.junit.Test;
 
+import java.io.*;
+import java.math.BigDecimal;
 import java.util.*;
 
 /**
@@ -365,7 +367,7 @@ public class APP {
          Integer mount = 500000;//可贷额度，职工本人符合贷款申请条件的，最高可贷50万
          Integer aFundSum =0;//公积金总额
          Integer sum = 0;//月均缴存余额总值
-         Integer balance = 13728 ; //公积金账户余额
+         Integer balance = 17000 ; //公积金账户余额
          Integer value = Math.floorDiv(mount,multiple); //月均缴存余额阀值
          System.out.println("--------》月均缴存余额阀值："+value);
          Integer remainingSum = 0 ;
@@ -405,6 +407,102 @@ public class APP {
         ArrayList arrayList = new ArrayList();
 
         LinkedList<String> linkedList = new LinkedList<>();
+    }
+
+    /**
+     * @Description 将字符串输出到文件
+     * @Author yangsj
+     * @Date 2019/8/12 17:23
+     **/
+    @Test
+    public void test18() {
+        Map<String,Integer> map = new HashMap<>();
+        map.put("1",1);
+        try{
+            FileWriter fw = new FileWriter("1.txt", false);
+            BufferedWriter bw = new BufferedWriter(fw);
+            bw.write("4214321342134214");
+            bw.newLine();
+            bw.write("12121");
+            bw.close();
+            fw.close();
+
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+    }
+
+
+    /**
+     * @Description 自定义对象作为key存入对象时，是否需要重写equals
+     * @Author yangsj
+     * @Date 2019/8/14 10:18
+     **/
+    @Test
+    public void test19(){
+        Person p1 = new Person("yangsj",24);
+        Person p2 = new Person("yangsj",24);
+        System.out.println(p1.equals(p2));
+        HashMap<Person,Integer> map = new HashMap<>();
+        map.put(p1,2);
+        System.out.println(map.get(p2));
+    }
+    
+    
+    /**
+     * @Description String StringBuffer StringBuilder
+     * @Author yangsj
+     * @Date 2019/8/15 10:54
+     **/
+    @Test
+    public void test20(){
+       /* String str = new String();
+        StringBuffer stringBuffer = new StringBuffer();
+        StringBuilder stringBuilder = new StringBuilder();*/
+       String str = "+232+23";
+       str = str.replaceAll("\\+","");
+       System.out.println(str);
+    }
+
+
+    /**
+     * @Description char 字节和int
+     * @Author yangsj
+     * @Date 2019/8/20 10:00
+     **/
+    @Test
+    public void test21(){
+        char i = '.';
+        System.out.println(Integer.valueOf(i));//49
+        //字节 用ASCII码表示，均对应一个int值，可直接赋值给int类型的变量
+        System.out.println(i ==46);
+        int num = i;
+        System.out.println(num);
+        String val = "1";
+        System.out.println(val.charAt(0));
+    }
+
+
+    /**
+     * @Description 测试 正则表达式
+     * @Author yangsj
+     * @Date 2019/8/23 14:52
+     **/
+    @Test
+    public void test22(){
+        //匹配多位整数
+        System.out.println("\\d+");
+        boolean matches = "1".matches("\\d+");
+        System.out.println(matches);
+        //匹配多位小数
+        matches = "10.098".matches("^([0-9]+[.][0-9]*)$");
+        System.out.println(matches);
+        BigDecimal bigDecimal = new BigDecimal(1.11111111);
+        System.out.println(bigDecimal);
+        Double d1 = new Double(1.1111);
+        Double d2 = new Double(1.1111);
+
+        System.out.println();
     }
 
 }
