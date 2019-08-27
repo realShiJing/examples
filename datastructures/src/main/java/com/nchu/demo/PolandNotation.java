@@ -2,15 +2,16 @@ package com.nchu.demo;
 
 import org.junit.Test;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
 
 /**
  * @Decription 逆波兰表达式 实现计算器
- *
- * 输入一个逆波兰表达式(后缀表达式)，使用栈(Stack), 计算其结果
- * 支持小括号和多位数整数
+ * 输入一个 中缀表达式 将其转换为 逆波兰表达式
+ * 使用栈(Stack), 计算其结果
+ * 支持小括号和多位数整数 ,小数
  * @Author yangsj
  * @Date 20190823 14:34
  **/
@@ -27,7 +28,8 @@ public class PolandNotation {
         //先定义给逆波兰表达式
         //(30+4)×5-6  => 30 4 + 5 × 6 - => 164
         //1+((2+3)*4)-5 => 1 2 3 + 4 * + 5 -  =>16
-        String expression = "1+((2+3)*4)-5";
+        //1.223423 + ( ( 2.2234234  +  3 ) * 4 ) - 5  = 1.223423, 2.2234234, 3, +, 4, *, 5, -, + => 17.1171166
+        String expression = "1.223423 + ( ( 2.2234234  +  3  ) * 4 ) - 5 ";
         //中缀表达式 链表
         List<String> infixList = strToList(expression);
         System.out.println("中缀表达式："+infixList);
@@ -38,7 +40,7 @@ public class PolandNotation {
         /* //将String转换为list
         List<String> list = expToList(expression);*/
         //对转换成list的逆波兰表达式进行计算
-        Integer result = cal(suffixList);
+        Double result = cal(suffixList);
         //控制台输出结果
         System.out.println(result);
 
@@ -81,7 +83,7 @@ public class PolandNotation {
         Stack<String> operStack = new Stack();
         ArrayList<String> result = new ArrayList<>();
         for(String str : list) {
-            if(str.matches("\\d+")){//匹配多位数
+            if(str.matches("^([0-9]+[.][0-9]*)$")||str.matches("\\d+")){//匹配多位小数和多位整数
                 //遇到操作数时，将其存入结果集
                 result.add(str);
             }else if(str.equals("(")){
@@ -95,7 +97,7 @@ public class PolandNotation {
                 //遍历完之后将 左括号 舍弃
                 operStack.pop();
             }else{
-                //不为空或不为左括号 且 优先级 比栈顶的 运算符优先级低 时 将符号栈顶的运算符弹出并存入结果集
+                //不为空且不为左括号 且 优先级 比栈顶的 运算符优先级低 时 将符号栈顶的运算符弹出并存入结果集
                 if(!(operStack.empty()||operStack.peek().equals("("))&&priority(str)<priority(operStack.peek())){
                     result.add(operStack.pop());
                 }
@@ -119,13 +121,17 @@ public class PolandNotation {
      * @Date 2019/8/26 14:42
      **/
     public List<String> strToList(String expression){
+        //去掉字符串中的空格
+        expression = expression.replaceAll(" ","");
+        System.out.println("去掉空格后的字符串:"+ expression);
         int index = 0 ;//遍历索引
         StringBuffer num = new StringBuffer() ;//数字字符串，用于拼接多位数
         ArrayList<String> list = new ArrayList<>();
         while (index != expression.length()){
             if(expression.charAt(index)>= 48 && expression.charAt(index)<=57){//数字0-9
-                //继续往后遍历，如果仍是数字，就拼接
-                while (index !=expression.length()&&expression.charAt(index)>= 48 && expression.charAt(index)<=57){
+                //继续往后遍历，如果仍是数字，或 点 . 就拼接
+                while (index !=expression.length()&&((expression.charAt(index)>= 48 && expression.charAt(index)<=57)
+                        ||expression.charAt(index)==46)){
                     num.append(expression.charAt(index));
                     index ++;
                 }
@@ -163,36 +169,40 @@ public class PolandNotation {
      * @Author yangsj
      * @Date 2019/8/23 14:48
      **/
-    public Integer cal(List<String> list){
+    public Double cal(List<String> list){
         //用自定义实现的栈存储数据
-        Stack<Integer> stack = new Stack();
+        Stack<Double> stack = new Stack();
         for(String val :list){
-            if(val.matches("\\d+")){//如果是数字，就将数值入栈
-                stack.push(Integer.parseInt(val));
+            if(val.matches("^([0-9]+[.][0-9]*)$")||val.matches("\\d+")){//如果是数字，就将数值入栈
+                stack.push(Double.valueOf(val));
             }else {//如果是运算符，弹出栈顶的两个数，用运算符对它们做相应地计算
-                Integer num1 = Integer.valueOf(stack.pop());
-                Integer num2 = Integer.valueOf(stack.pop());
-                Integer num;
+                BigDecimal num1 = BigDecimal.valueOf(stack.pop());
+                BigDecimal num2 = BigDecimal.valueOf(stack.pop());
+                BigDecimal num;
                 switch (val){
                     case "+":
-                        num = num2 + num1;
+                        num = num2.add(num1);
+                        //num = num2 + num1;
                         break;
                     case "-":
-                        num = num2 - num1;
+                        num = num2.subtract(num1);
+                        //num = num2 - num1;
                         break;
                     case "*":
-                        num = num2 * num1;
+                        num = num2.multiply(num1);
+                        //num = num2*num1
                         break;
                     case "/":
-                        num = num2 / num1;
+                        num = num2.divide(num1);
+                        //num = num2 / num1;
                         break;
                     default:
                         throw new RuntimeException("运算符非法！");
                 }
                 //运算的结果入栈
-                stack.push(num);
+                stack.push(num.doubleValue());
             }
         }
-        return Integer.valueOf(stack.pop());
+        return Double.valueOf(stack.pop());
     }
 }
