@@ -26,6 +26,7 @@ public class maze {
             maze[i][0] = 1;
             maze[i][7] = 1;
         }
+        maze[1][1] = 1;
         maze[0][1] = 0 ;//迷宫入口
         maze[7][6] = 0 ;//迷宫出口
         System.out.println("----------原始迷宫---------");
@@ -43,6 +44,10 @@ public class maze {
      * @Date 2019/8/28 16:46
      **/
     public boolean go(int[][] maze ,int line ,int column){
+        //如果坐标非法，直接返回false
+        if(line > maze.length || column > maze[0].length || line < 0 || column < 0){
+            return false;
+        }
         if(line == 7 && column == 6 ){//退出迭代的条件，找到了出口
             maze[line][column] = 2 ;
             return true;
