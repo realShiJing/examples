@@ -37,4 +37,19 @@ public class APP {
             return factorial(n-1)*n;
         }
     }
+
+
+
+    /**
+     * @Description 测试八皇后问题
+     * @Author yangsj
+     * @Date 2019/8/29 15:01
+     **/
+    @Test
+    public void testQueen8(){
+        Queen8 queen = new Queen8();
+        //从第一个开始放置
+        queen.put(0);
+        System.out.println("一共有"+Queen8.count+"种解法");
+    }
 }
