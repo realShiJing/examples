@@ -7,7 +7,7 @@ import org.junit.Test;
  * @Author yangsj
  * @Date 20190828 16:30
  **/
-public class maze {
+public class Maze {
 
     /**
      * @Description 迷宫测试
