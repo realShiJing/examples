@@ -26,6 +26,7 @@ public class maze {
             maze[i][0] = 1;
             maze[i][7] = 1;
         }
+
         maze[1][1] = 1;
         maze[0][1] = 0 ;//迷宫入口
         maze[7][6] = 0 ;//迷宫出口
