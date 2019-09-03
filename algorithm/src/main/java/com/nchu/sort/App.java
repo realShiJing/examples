@@ -21,4 +21,16 @@ public class App {
         SelectSort sort = new SelectSort();
         sort.selectSort(arry);
     }
+
+    /**
+     * @Description 测试插入排序
+     * @Author yangsj
+     * @Date 2019/9/2 10:21
+     **/
+    @Test
+    public void testInsertSort(){
+        int[] arry = new int[]{8, 3, 2, 1, 7, 4, 6, 5};
+        InsertSort sort = new InsertSort();
+        sort.insertSort(arry);
+    }
 }
