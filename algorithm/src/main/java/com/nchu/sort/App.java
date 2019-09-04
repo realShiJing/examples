@@ -33,4 +33,18 @@ public class App {
         InsertSort sort = new InsertSort();
         sort.insertSort(arry);
     }
+
+
+    /**
+     * @Description 测试希尔排序
+     * @Author yangsj
+     * @Date 2019/9/4 10:44
+     **/
+    @Test
+    public void testShellSort(){
+        int[] arry = { 8, 9, 1, 7, 2, 3, 5, 4, 6, 0 };
+        ShellSort sort = new ShellSort();
+        //sort.shellSort(arry);
+        sort.shellSortByBubble(arry);
+    }
 }
