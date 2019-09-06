@@ -504,6 +504,38 @@ public class APP {
 
         System.out.println();
     }
+    
+    
+    /**
+     * @Description 时间复杂度的一些测试
+     * @Author yangsj
+     * @Date 2019/8/30 10:32
+     **/
+    @Test
+    public void test23(){
+        int  total  = 0 ;
+        int  end  = 100;
+        for(int i = 1 ; i <= end ; i++){
+            total +=i;
+        }
+        total = (1 + end) * end / 2;
+
+    }
+
+
+    /**
+     * @Description finally 测试
+     * @Author yangsj
+     * @Date 2019/9/3 19:16
+     **/
+    @Test
+    public void test24(){
+        try{
+            System.exit(1);
+        }finally {
+            System.out.println("Print From Finally");
+        }
+    }
 
 }
 

@@ -15,8 +15,8 @@ public class App {
      * @Date 2019/9/2 10:21
      **/
     @Test
-    public void testSelectSort(){
-        int[] arry = {2,4,5,1};
+    public void testSelectSort() {
+        int[] arry = {2, 4, 5, 1};
         arry = new int[]{8, 3, 2, 1, 7, 4, 6, 5};
         SelectSort sort = new SelectSort();
         sort.selectSort(arry);
@@ -46,5 +46,25 @@ public class App {
         ShellSort sort = new ShellSort();
         //sort.shellSort(arry);
         sort.shellSortByBubble(arry);
+    }
+
+
+    /**
+     * @Description 测试快速排序
+     * @Author yangsj
+     * @Date 2019/9/6 11:11
+     **/
+    @Test
+    public void testQuickSort() {
+        // 初始化一个序列
+        int[] array = {5, 6, 7, 9, 2, 8, 1, 0, 3, 4};
+        // 调用快速排序方法
+        QuickSort sort = new QuickSort();
+        //过程打印
+        System.out.print("排序前:\t\t");
+        sort.printPart(array, 0, array.length - 1);
+        sort.quickSort(array, 0, array.length - 1);
+        System.out.print("排序后:\t\t");
+        sort.printPart(array, 0, array.length - 1);
     }
 }
