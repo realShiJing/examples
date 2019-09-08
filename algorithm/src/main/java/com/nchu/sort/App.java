@@ -2,6 +2,8 @@ package com.nchu.sort;
 
 import org.junit.Test;
 
+import java.util.Arrays;
+
 /**
  * @Decription 排序测试
  * @Author yangsj
@@ -66,5 +68,19 @@ public class App {
         sort.quickSort(array, 0, array.length - 1);
         System.out.print("排序后:\t\t");
         sort.printPart(array, 0, array.length - 1);
+    }
+
+    /**
+     * @Description  测试归并排序
+     * @Author yangsj
+     * @Date 2019-09-08 13:02
+     **/
+    @Test
+    public void testMergeSort(){
+        int[] arry = {8,7,6,5,4,3,2,1,0};
+        int[] temp = new int[arry.length];//声明临时数组，用于存放排好序的元素
+        MergeSort sort = new MergeSort();
+        sort.sort(arry,0 ,arry.length-1,temp);
+        System.out.println(Arrays.toString(arry));
     }
 }
