@@ -537,6 +537,17 @@ public class APP {
         }
     }
 
+    /**
+     * @Description 取模
+     * @Author yangsj
+     * @Date 2019/9/9 19:16
+     **/
+    @Test
+    public void test25(){
+        Double num = 748.2;
+        System.out.println(748 % 10);
+    }
+
 }
 
 
