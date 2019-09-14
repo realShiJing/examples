@@ -56,8 +56,9 @@ public class SingleLinkedList {
             if(temp == null){
                 break;
             }
-            System.out.println(temp);
+            System.out.print("=》"+temp);
         }
+        System.out.println();
     }
 
     //有序添加
@@ -110,6 +111,31 @@ public class SingleLinkedList {
      * @Date 2019/8/9 15:07
      **/
     public void delete(Node headNode, int data){
+        Node temp = headNode;
+        if(temp.next == null){
+            System.out.println("链表为空！");
+            return;
+        }
+        while(true){
+            if(temp.next == null){
+                System.out.println("链表中不存在该数据");
+                return;
+            }
+            //找到要删除节点的前一个节点
+            if(temp.next.data == data){
+                break;
+            }
+            temp = temp.next;
+        }
+        temp.next = temp.next.next;
+    }
+
+    /**
+     * @Description 删除节点
+     * @Author yangsj
+     * @Date 2019/9/14 15:07
+     **/
+    public void delete(int data){
         Node temp = headNode;
         if(temp.next == null){
             System.out.println("链表为空！");
@@ -256,5 +282,26 @@ public class SingleLinkedList {
            list.addSort(stack.pop().data);
         }
         return list;
+    }
+
+    /**
+     * @Description  查看 数据是否存在该链表中
+     * @Author yangsj
+     * @Date 2019-09-14 16:14
+     **/
+    public boolean find(int data){
+        Node temp = headNode;
+        while (true){
+
+            if(temp.data == data && temp != headNode){
+                return true;
+            }
+            //遍历到链表的末尾，结束循环
+            if(temp.next == null){
+                break;
+            }
+            temp = temp.next;
+        }
+        return false;
     }
 }
