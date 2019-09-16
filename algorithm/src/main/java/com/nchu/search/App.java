@@ -3,6 +3,7 @@ package com.nchu.search;
 import org.junit.Test;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  * @Decription 查找算法的测试
@@ -56,6 +57,27 @@ public class App {
         }else{
             System.out.println("要查找值的索引为："+ index);
         }
+    }
+
+
+    /**
+     * @Description 测试斐波那契查找算法
+     * @Author yangsj
+     * @Date 2019/9/12 14:45
+     **/
+    @Test
+    public void testFibonacciSearch(){
+        int[] array = {1,8, 10, 89, 1000, 1234};
+        FibonacciSearch fibonacciSearch = new FibonacciSearch();
+      /*  int[] fibnacci = fibonacciSearch.fibonacci();
+        System.out.println(Arrays.toString(fibnacci));*/
+        int index = fibonacciSearch.fibonacciSearch(array, 1234);
+        if(index == -1){
+            System.out.println("未找到该元素！");
+        }else{
+            System.out.println("要查找值的索引为："+ index);
+        }
+
     }
 
 }
