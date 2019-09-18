@@ -81,4 +81,22 @@ public class App {
             root.preOrder();
         }
     }
+
+    /**
+     * @Description 测试以二叉树前、中、后序遍历的方式遍历数组
+     * @Author yangsj
+     * @Date 2019/9/18 13:45
+     **/
+    @Test
+    public void testArrayPreOrder(){
+        int[] datas = {1,2,3,4,5,6,7};
+        ArrayBinaryTree arrayTree = new ArrayBinaryTree(datas);
+        //前序遍历：1、2、4、5、3、6、7
+        arrayTree.preOrder();
+        //中序遍历：4、2、5、1、6、3、7
+        arrayTree.infixOrder();
+        //后序遍历：4、5、2、6、7、3、1
+        arrayTree.postOrder();
+    }
+
 }
