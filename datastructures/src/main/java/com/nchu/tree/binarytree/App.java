@@ -99,4 +99,27 @@ public class App {
         arrayTree.postOrder();
     }
 
+    /**
+     * @Description 测试线索化二叉树
+     * @Author yangsj
+     * @Date 2019/9/20 13:46
+     **/
+    @Test
+    public void testCluesBinaryTree(){
+        int[] datas = {14,26,12,50,13,0};
+        CluesBinaryTree root = new CluesBinaryTree(datas[0]);
+        for(int i = 1 ; i < datas.length ; i++){
+            root.insert(new CluesBinaryTree(datas[i]));
+        }
+        root.infixClues();
+        //                       12     0    12   13
+        System.out.println(root.right.right.left.left.data);
+
+        //                       26   50   26
+        System.out.println(root.left.left.right.data);
+
+        //                       26   50
+        System.out.println(root.left.left.rightType);
+    }
+
 }
