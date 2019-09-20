@@ -70,6 +70,36 @@ public class CluesBinaryTree{
     }
 
     /**
+     * @Description 遍历中序线索化二叉树（非递归）
+     * @Author yangsj
+     * @Date 2019/9/20 15:05
+     **/
+    public void infixOrder(){
+        //临时节点用于存放要输出的节点
+        CluesBinaryTree node = this;
+        //由当前节点向左遍历，找到中序遍历的第一个节点
+        //然后利用线索化二叉树的线索特点，遍历出其他节点
+        while(node != null) {
+            //找到有前驱节点的节点时，直接将其输出，
+            while(node.leftType== 0) {
+                node = node.left;
+            }
+            System.out.println(node.data);
+            //如果当前结点的右指针指向的是后继结点,就一直输出
+            while(node.rightType == 1) {
+                //获取到当前结点的后继结点
+                node = node.right;
+                System.out.println(node.data);
+            }
+            //?
+            node = node.right;
+        }
+
+
+    }
+
+
+    /**
      * @Description  节点的插入
      * @Author yangsj
      * @Date 2019-09-15 21:13
