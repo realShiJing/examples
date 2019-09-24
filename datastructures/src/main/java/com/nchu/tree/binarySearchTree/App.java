@@ -72,7 +72,7 @@ public class App {
         System.out.println(" 普通二叉排序树：leftHight :" + binarySearchTree.height(binarySearchTree.left) + " rightHight :" +binarySearchTree.height( binarySearchTree.right) );
         AvlTree root = new AvlTree(datas[0]);
         for(int i = 1;i < datas.length ;i++){
-             root = root.insert(datas[i], root);
+             root = root.insert(datas[i]);
         }
         root.infixOrder();
         System.out.println(" 自平衡二叉排序树：leftHight :" + root.height(root) + " rightHight :" + root.height(root) );
