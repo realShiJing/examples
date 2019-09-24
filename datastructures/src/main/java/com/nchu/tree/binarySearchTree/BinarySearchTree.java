@@ -48,7 +48,14 @@ public class BinarySearchTree {
         }
     }
     /*--------------------------遍历------------------------------*/
-
+    /**
+     * @Description  中序
+     * @Author yangsj
+     * @Date 2019-09-24 20:34
+     **/
+    public void infixOrder(){
+        this.in(this);
+    }
     /**
      * @Description 中序遍历
      * @Author yangsj
@@ -56,7 +63,7 @@ public class BinarySearchTree {
      * @Param root
      * @return
      **/
-    public  void  in(BinarySearchTree root){
+    private   void  in(BinarySearchTree root){
         if (root != null){
             in(root.left);//遍历左子树
             System.out.print(root.data +",");

@@ -1,5 +1,7 @@
 package com.nchu.tree.binarySearchTree;
 
+import org.checkerframework.checker.units.qual.A;
+
 /**
  * @Decription 自平衡二叉树
  * @Author yangsj
@@ -115,7 +117,14 @@ public class AvlTree {
         return avlTree;
     }
 
-
+    /**
+     * @Description   插入
+     * @Author yangsj
+     * @Date 2019-09-24 20:35
+     **/
+    public AvlTree insert(int data){
+        return  this.insert(data,this);
+    }
     /**
      * @Description 插入
      * @Author yangsj
@@ -149,7 +158,7 @@ public class AvlTree {
         //当添加完一个结点后，如果 (左子树的高度 - 右子树的高度) > 1, 右旋转
         if(height(node.left) - height(node.right) > 1){
             //如果它的左子树的右子树高度大于它的左子树的高度
-            if(left != null && height(left.left) > height(left.right)) {
+            if(left != null && height(left.right) > height(left.left)) {
                 node = rotateLeftRight(node);
             }else{
                 node = rotateRight(node);
@@ -161,13 +170,21 @@ public class AvlTree {
     }
 
     /**
+     * @Description  中序
+     * @Author yangsj
+     * @Date 2019-09-24 20:34
+     **/
+    public void infixOrder(){
+        this.in(this);
+    }
+    /**
      * @Description 中序遍历
      * @Author yangsj
      * @Date 2019/7/22 11:04
      * @Param root
      * @return
      **/
-    public  void  in(AvlTree root){
+    private   void  in(AvlTree root){
         if (root != null){
             in(root.left);//遍历左子树
             System.out.print(root.data +",");
