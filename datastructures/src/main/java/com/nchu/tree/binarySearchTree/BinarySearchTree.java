@@ -187,5 +187,14 @@ public class BinarySearchTree {
        return node;
     }
 
+    /**
+     * @Description 计算节点的高度
+     * @Author yangsj
+     * @Date 2019/9/24 9:52
+     **/
+    public int height(BinarySearchTree node){
+        return node == null ? 0 :(Math.max(node.left == null ? 0 : height(node.left) ,node.right == null ? 0 : height(node.right))+ 1);
+    }
+
 
 }
