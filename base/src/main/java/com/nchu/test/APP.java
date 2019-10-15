@@ -3,13 +3,18 @@ package com.nchu.test;
 import com.alibaba.fastjson.JSONObject;
 import com.google.common.collect.BiMap;
 import com.google.common.collect.HashBiMap;
-import com.nchu.bean.Person;
 import com.nchu.base.common.Week;
+import com.nchu.bean.Parent;
+import com.nchu.bean.Person;
+import com.nchu.bean.Son;
 import com.nchu.test.OutSide.Inside;
 import org.junit.Test;
 
-import java.io.*;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 import java.math.BigDecimal;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 /**
@@ -548,6 +553,72 @@ public class APP {
         System.out.println(748 % 10);
     }
 
+
+    /**
+     * @Description 日期格式化
+     * @Author yangsj
+     * @Date 2019/10/14 17:57
+     **/
+    @Test
+    public void test26() throws ParseException {
+        Date date = new Date();
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        String format = simpleDateFormat.format(date);
+        simpleDateFormat.parse("2019-10-14");
+        System.out.println(format);
+    }
+
+
+    /**
+     * @Description String split
+     * @Author yangsj
+     * @Date 2019/10/15 10:42
+     **/
+    @Test
+    public  void test27(){
+        String pod = "10001|111111";
+        String[] split = pod.split("\\|");
+        System.out.println(Arrays.toString(split));
+    }
+    /**
+     * @Description List.sort()
+     * @Author yangsj
+     * @Date 2019/10/15 10:31
+     **/
+    @Test
+    public void listSort(){
+        List<String> list = Arrays.asList("123","456","789","1011","nachanghangkong","nchu","realshi","138989898");
+        list.sort(new Comparator<String>() {
+            @Override
+            public int compare(String o1, String o2) {
+                return o1.length() - o2.length();
+            }
+        });
+
+        list.sort((o1, o2) -> o1.length() - o2.length());
+
+
+        list.sort(Comparator.comparingInt(String::length));
+        System.out.println(list);
+    }
+
+
+    /**
+     * @Description static final修饰方法测试
+     * @Author yangsj
+     * @Date 2019/10/15 11:16
+     **/
+    @Test
+    public void test28(){
+        Parent son = new Son();
+        //子类实现父类非静态方法，输出 son
+        son.test1();
+        //如果在子类中写一个和父类中一样的静态方法,那么该静态方法由该子类特有，两者不构成重写关系,输出 parent
+        son.test2();
+
+    }
+
+
 }
 
 
@@ -555,13 +626,28 @@ class MyException extends Exception{
 
 }
 
-interface AA{
+interface InterFaceTest{
+    //int value ; 接口中不能报包含变量
+
+    //Modifier 'public' is redundant for interface fields
+    //Modifier 'static' is redundant for interface fields
+    //Modifier 'final' is redundant for interface fields
+    //只能包含常量成员，且默认的是public static final 修饰
+    public  static  final  int value = 1;
+
+    static  void test(){
+        System.out.print("1");
+    }
+
+    /**
+     * @Description JDK1.8开始支持 default method实现
+     * @Author yangsj
+     * @Date 2019/10/15 10:49
+     **/
     default void test2(){
         System.out.print("2");
     }
-    static void test(){
-        System.out.print("1");
-    };
+
 }
 
 class OutSide{
