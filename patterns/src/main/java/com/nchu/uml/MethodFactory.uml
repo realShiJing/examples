@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>com.nchu.factory.method.App</OriginalElement>
+  <nodes>
+    <node x="1277.0" y="108.0">com.nchu.factory.method.Banana</node>
+    <node x="1005.5" y="-12.0">com.nchu.factory.method.App</node>
+    <node x="597.0" y="348.0">com.nchu.factory.method.Apple</node>
+    <node x="1277.0" y="228.0">com.nchu.factory.method.Fruit</node>
+    <node x="1018.5" y="108.0">com.nchu.factory.method.BananaFactory</node>
+    <node x="782.5" y="108.0">com.nchu.factory.method.FruitFactory</node>
+    <node x="582.5" y="108.0">com.nchu.factory.method.AppleFactory</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="com.nchu.factory.method.App" target="com.nchu.factory.method.BananaFactory">
+      <point x="0.0" y="30.0" />
+      <point x="0.0" y="-30.0" />
+    </edge>
+    <edge source="com.nchu.factory.method.Banana" target="com.nchu.factory.method.Fruit">
+      <point x="0.0" y="30.0" />
+      <point x="0.0" y="-30.0" />
+    </edge>
+    <edge source="com.nchu.factory.method.BananaFactory" target="com.nchu.factory.method.Banana">
+      <point x="81.5" y="0.0" />
+      <point x="-63.0" y="0.0" />
+    </edge>
+    <edge source="com.nchu.factory.method.AppleFactory" target="com.nchu.factory.method.Fruit">
+      <point x="40.0" y="30.0" />
+      <point x="700.0" y="258.0" />
+      <point x="-63.0" y="0.0" />
+    </edge>
+    <edge source="com.nchu.factory.method.BananaFactory" target="com.nchu.factory.method.FruitFactory">
+      <point x="-81.5" y="0.0" />
+      <point x="77.5" y="0.0" />
+    </edge>
+    <edge source="com.nchu.factory.method.Apple" target="com.nchu.factory.method.Fruit">
+      <point x="63.0" y="0.0" />
+      <point x="1340.0" y="378.0" />
+      <point x="0.0" y="30.0" />
+    </edge>
+    <edge source="com.nchu.factory.method.FruitFactory" target="com.nchu.factory.method.Fruit">
+      <point x="0.0" y="30.0" />
+      <point x="860.0" y="248.0" />
+      <point x="-63.0" y="-10.0" />
+    </edge>
+    <edge source="com.nchu.factory.method.AppleFactory" target="com.nchu.factory.method.FruitFactory">
+      <point x="77.5" y="0.0" />
+      <point x="-77.5" y="0.0" />
+    </edge>
+    <edge source="com.nchu.factory.method.AppleFactory" target="com.nchu.factory.method.Apple">
+      <point x="0.0" y="30.0" />
+      <point x="0.0" y="-30.0" />
+    </edge>
+    <edge source="com.nchu.factory.method.App" target="com.nchu.factory.method.AppleFactory">
+      <point x="-94.5" y="0.0" />
+      <point x="660.0" y="18.0" />
+      <point x="0.0" y="-30.0" />
+    </edge>
+    <edge source="com.nchu.factory.method.App" target="com.nchu.factory.method.Fruit">
+      <point x="94.5" y="0.0" />
+      <point x="1460.0" y="18.0" />
+      <point x="1460.0" y="258.0" />
+      <point x="63.0" y="0.0" />
+    </edge>
+    <edge source="com.nchu.factory.method.BananaFactory" target="com.nchu.factory.method.Fruit">
+      <point x="0.0" y="30.0" />
+      <point x="1100.0" y="238.0" />
+      <point x="-63.0" y="-20.0" />
+    </edge>
+  </edges>
+  <settings layout="Orthogonal" zoom="1.0" x="759.5" y="242.0" />
+  <SelectedNodes>
+    <node>com.nchu.factory.method.Banana</node>
+    <node>com.nchu.factory.method.App</node>
+    <node>com.nchu.factory.method.Apple</node>
+    <node>com.nchu.factory.method.Fruit</node>
+    <node>com.nchu.factory.method.BananaFactory</node>
+    <node>com.nchu.factory.method.FruitFactory</node>
+    <node>com.nchu.factory.method.AppleFactory</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Constructors</Category>
+    <Category>Methods</Category>
+    <Category>Properties</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
