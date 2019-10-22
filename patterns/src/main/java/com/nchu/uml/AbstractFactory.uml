@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>com.nchu.factory.abstraction.App</OriginalElement>
+  <nodes>
+    <node x="56.94999999999999" y="409.0">com.nchu.factory.abstraction.SouthFruitFactory</node>
+    <node x="340.37750000000005" y="538.0">com.nchu.factory.abstraction.App</node>
+    <node x="172.93625" y="292.0">com.nchu.factory.abstraction.SouthBanan</node>
+    <node x="168.27500000000003" y="105.0">com.nchu.factory.abstraction.Apple</node>
+    <node x="679.93625" y="292.0">com.nchu.factory.abstraction.NorthBanan</node>
+    <node x="558.6" y="409.0">com.nchu.factory.abstraction.NorthFruitFactory</node>
+    <node x="25.936249999999973" y="292.0">com.nchu.factory.abstraction.SouthApple</node>
+    <node x="504.27500000000003" y="105.0">com.nchu.factory.abstraction.Banana</node>
+    <node x="320.65000000000003" y="0.0">com.nchu.factory.abstraction.Fruit</node>
+    <node x="318.93625000000003" y="280.0">com.nchu.factory.abstraction.FruitFactory</node>
+    <node x="521.93625" y="292.0">com.nchu.factory.abstraction.NorthApple</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="com.nchu.factory.abstraction.NorthFruitFactory" target="com.nchu.factory.abstraction.FruitFactory">
+      <point x="-73.19999999999993" y="-39.5" />
+      <point x="576.9000000000001" y="389.0" />
+      <point x="471.43625000000003" y="389.0" />
+      <point x="61.0" y="39.5" />
+    </edge>
+    <edge source="com.nchu.factory.abstraction.NorthFruitFactory" target="com.nchu.factory.abstraction.NorthApple">
+      <point x="-36.60000000000002" y="-39.5" />
+      <point x="613.5" y="389.0" />
+      <point x="584.93625" y="389.0" />
+      <point x="0.0" y="27.5" />
+    </edge>
+    <edge source="com.nchu.factory.abstraction.SouthFruitFactory" target="com.nchu.factory.abstraction.Banana">
+      <point x="0.0" y="-39.5" />
+      <point x="148.45" y="389.0" />
+      <point x="162.43625" y="389.0" />
+      <point x="162.43625" y="240.0" />
+      <point x="514.7750000000001" y="240.0" />
+      <point x="-52.5" y="27.5" />
+    </edge>
+    <edge source="com.nchu.factory.abstraction.Apple" target="com.nchu.factory.abstraction.Fruit">
+      <point x="0.0" y="-27.5" />
+      <point x="231.27500000000003" y="80.0" />
+      <point x="352.15000000000003" y="80.0" />
+      <point x="-31.5" y="27.5" />
+    </edge>
+    <edge source="com.nchu.factory.abstraction.NorthFruitFactory" target="com.nchu.factory.abstraction.NorthBanan">
+      <point x="73.20000000000005" y="-39.5" />
+      <point x="723.3000000000001" y="389.0" />
+      <point x="742.93625" y="389.0" />
+      <point x="0.0" y="27.5" />
+    </edge>
+    <edge source="com.nchu.factory.abstraction.App" target="com.nchu.factory.abstraction.NorthFruitFactory">
+      <point x="27.399999999999977" y="-27.5" />
+      <point x="436.27750000000003" y="508.0" />
+      <point x="650.1" y="508.0" />
+      <point x="0.0" y="39.5" />
+    </edge>
+    <edge source="com.nchu.factory.abstraction.SouthFruitFactory" target="com.nchu.factory.abstraction.FruitFactory">
+      <point x="73.19999999999999" y="-39.5" />
+      <point x="221.64999999999998" y="389.0" />
+      <point x="349.43625000000003" y="389.0" />
+      <point x="-61.0" y="39.5" />
+    </edge>
+    <edge source="com.nchu.factory.abstraction.App" target="com.nchu.factory.abstraction.FruitFactory">
+      <point x="0.0" y="-27.5" />
+      <point x="408.87750000000005" y="518.0" />
+      <point x="410.43625000000003" y="518.0" />
+      <point x="0.0" y="39.5" />
+    </edge>
+    <edge source="com.nchu.factory.abstraction.NorthFruitFactory" target="com.nchu.factory.abstraction.Apple">
+      <point x="0.0" y="-39.5" />
+      <point x="650.1" y="389.0" />
+      <point x="658.43625" y="389.0" />
+      <point x="658.43625" y="210.0" />
+      <point x="283.77500000000003" y="210.0" />
+      <point x="52.5" y="27.5" />
+    </edge>
+    <edge source="com.nchu.factory.abstraction.NorthFruitFactory" target="com.nchu.factory.abstraction.Banana">
+      <point x="36.60000000000002" y="-39.5" />
+      <point x="686.7" y="389.0" />
+      <point x="669.43625" y="389.0" />
+      <point x="669.43625" y="200.0" />
+      <point x="577.7750000000001" y="200.0" />
+      <point x="10.5" y="27.5" />
+    </edge>
+    <edge source="com.nchu.factory.abstraction.NorthApple" target="com.nchu.factory.abstraction.Apple">
+      <point x="0.0" y="-27.5" />
+      <point x="584.93625" y="220.0" />
+      <point x="262.77500000000003" y="220.0" />
+      <point x="31.5" y="27.5" />
+    </edge>
+    <edge source="com.nchu.factory.abstraction.App" target="com.nchu.factory.abstraction.SouthFruitFactory">
+      <point x="-27.399999999999977" y="-27.5" />
+      <point x="381.4775000000001" y="508.0" />
+      <point x="148.45" y="508.0" />
+      <point x="0.0" y="39.5" />
+    </edge>
+    <edge source="com.nchu.factory.abstraction.NorthBanan" target="com.nchu.factory.abstraction.Banana">
+      <point x="0.0" y="-27.5" />
+      <point x="742.93625" y="190.0" />
+      <point x="598.7750000000001" y="190.0" />
+      <point x="31.5" y="27.5" />
+    </edge>
+    <edge source="com.nchu.factory.abstraction.FruitFactory" target="com.nchu.factory.abstraction.Apple">
+      <point x="-45.75" y="-39.5" />
+      <point x="364.68625000000003" y="230.0" />
+      <point x="241.77500000000003" y="230.0" />
+      <point x="10.5" y="27.5" />
+    </edge>
+    <edge source="com.nchu.factory.abstraction.SouthApple" target="com.nchu.factory.abstraction.Apple">
+      <point x="0.0" y="-27.5" />
+      <point x="88.93624999999997" y="230.0" />
+      <point x="220.77500000000003" y="230.0" />
+      <point x="-10.5" y="27.5" />
+    </edge>
+    <edge source="com.nchu.factory.abstraction.FruitFactory" target="com.nchu.factory.abstraction.Banana">
+      <point x="45.75" y="-39.5" />
+      <point x="456.18625000000003" y="260.0" />
+      <point x="556.7750000000001" y="260.0" />
+      <point x="-10.5" y="27.5" />
+    </edge>
+    <edge source="com.nchu.factory.abstraction.SouthFruitFactory" target="com.nchu.factory.abstraction.SouthApple">
+      <point x="-36.599999999999966" y="-39.5" />
+      <point x="111.85000000000002" y="389.0" />
+      <point x="88.93624999999997" y="389.0" />
+      <point x="0.0" y="27.5" />
+    </edge>
+    <edge source="com.nchu.factory.abstraction.SouthBanan" target="com.nchu.factory.abstraction.Banana">
+      <point x="-2.8421709430404007E-14" y="-27.5" />
+      <point x="235.93624999999997" y="250.0" />
+      <point x="535.7750000000001" y="250.0" />
+      <point x="-31.5" y="27.5" />
+    </edge>
+    <edge source="com.nchu.factory.abstraction.SouthFruitFactory" target="com.nchu.factory.abstraction.Apple">
+      <point x="-73.19999999999999" y="-39.5" />
+      <point x="75.25" y="389.0" />
+      <point x="15.436249999999973" y="389.0" />
+      <point x="15.436249999999973" y="220.0" />
+      <point x="199.77500000000003" y="220.0" />
+      <point x="-31.5" y="27.5" />
+    </edge>
+    <edge source="com.nchu.factory.abstraction.App" target="com.nchu.factory.abstraction.Banana">
+      <point x="54.80000000000001" y="-27.5" />
+      <point x="463.67750000000007" y="518.0" />
+      <point x="816.43625" y="518.0" />
+      <point x="816.43625" y="180.0" />
+      <point x="619.7750000000001" y="180.0" />
+      <point x="52.5" y="27.5" />
+    </edge>
+    <edge source="com.nchu.factory.abstraction.Banana" target="com.nchu.factory.abstraction.Fruit">
+      <point x="0.0" y="-27.5" />
+      <point x="567.2750000000001" y="80.0" />
+      <point x="415.15000000000003" y="80.0" />
+      <point x="31.5" y="27.5" />
+    </edge>
+    <edge source="com.nchu.factory.abstraction.App" target="com.nchu.factory.abstraction.Apple">
+      <point x="-54.80000000000001" y="-27.5" />
+      <point x="354.07750000000004" y="518.0" />
+      <point x="0.0" y="518.0" />
+      <point x="0.0" y="210.0" />
+      <point x="178.77500000000003" y="210.0" />
+      <point x="-52.5" y="27.5" />
+    </edge>
+    <edge source="com.nchu.factory.abstraction.SouthFruitFactory" target="com.nchu.factory.abstraction.SouthBanan">
+      <point x="36.60000000000002" y="-39.5" />
+      <point x="185.05" y="379.0" />
+      <point x="235.93625" y="379.0" />
+      <point x="0.0" y="27.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.8125560538116592" x="372.0" y="301.0" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Methods</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
