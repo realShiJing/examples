@@ -617,6 +617,15 @@ public class APP {
         son.test2();
 
     }
+   
+   /**
+    * @Description Collection
+    * @Author yangsj
+    * @Date 2019/10/23 16:42
+    **/
+    public void test29(){
+        List<Object> objects = Collections.synchronizedList(new ArrayList<>());
+    }
 
 
 }
