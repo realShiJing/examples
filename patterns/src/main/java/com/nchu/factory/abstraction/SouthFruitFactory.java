@@ -1,7 +1,7 @@
 package com.nchu.factory.abstraction;
 
 /**
- * @Decription 南方水果工厂，用于创建北方水果（产品结构）
+ * @Decription 南方水果工厂，用于创建南方水果（产品结构）
  * @Author yangsj
  * @Date 20191022 11:49
  **/
