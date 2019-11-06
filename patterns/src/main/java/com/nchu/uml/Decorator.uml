@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>com.nchu.decorator.APP</OriginalElement>
+  <nodes>
+    <node x="101.97115384615378" y="245.0">com.nchu.decorator.Shoes</node>
+    <node x="283.9711538461538" y="245.0">com.nchu.decorator.Shirt</node>
+    <node x="0.0" y="140.0">com.nchu.decorator.Teenager</node>
+    <node x="199.49999999999994" y="0.0">com.nchu.decorator.Person</node>
+    <node x="207.12820512820508" y="375.0">com.nchu.decorator.APP</node>
+    <node x="194.30448717948713" y="140.0">com.nchu.decorator.ClothingDecorator</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="com.nchu.decorator.APP" target="com.nchu.decorator.Teenager">
+      <point x="-49.125" y="-27.5" />
+      <point x="223.50320512820508" y="355.0" />
+      <point x="73.99999999999997" y="355.0" />
+      <point x="0.0" y="27.5" />
+    </edge>
+    <edge source="com.nchu.decorator.Shoes" target="com.nchu.decorator.Person">
+      <point x="2.8421709430404007E-14" y="-40.0" />
+      <point x="182.4711538461538" y="220.0" />
+      <point x="169.49999999999997" y="220.0" />
+      <point x="169.49999999999997" y="120.0" />
+      <point x="256.99999999999994" y="120.0" />
+      <point x="-23.0" y="40.0" />
+    </edge>
+    <edge source="com.nchu.decorator.Shirt" target="com.nchu.decorator.Person">
+      <point x="53.666666666666686" y="-40.0" />
+      <point x="418.13782051282044" y="220.0" />
+      <point x="401.49999999999994" y="220.0" />
+      <point x="401.49999999999994" y="110.0" />
+      <point x="325.99999999999994" y="110.0" />
+      <point x="46.0" y="40.0" />
+    </edge>
+    <edge source="com.nchu.decorator.Shoes" target="com.nchu.decorator.ClothingDecorator">
+      <point x="53.666666666666686" y="-40.0" />
+      <point x="236.13782051282047" y="220.0" />
+      <point x="234.80448717948713" y="220.0" />
+      <point x="-40.5" y="27.5" />
+    </edge>
+    <edge source="com.nchu.decorator.Teenager" target="com.nchu.decorator.Person">
+      <point x="0.0" y="-27.5" />
+      <point x="74.0" y="100.0" />
+      <point x="210.99999999999994" y="100.0" />
+      <point x="-69.0" y="40.0" />
+    </edge>
+    <edge source="com.nchu.decorator.APP" target="com.nchu.decorator.Shoes">
+      <point x="-16.375" y="-27.5" />
+      <point x="256.2532051282051" y="345.0" />
+      <point x="182.47115384615378" y="345.0" />
+      <point x="0.0" y="40.0" />
+    </edge>
+    <edge source="com.nchu.decorator.Shirt" target="com.nchu.decorator.ClothingDecorator">
+      <point x="-53.666666666666686" y="-40.0" />
+      <point x="310.80448717948707" y="220.0" />
+      <point x="315.8044871794871" y="220.0" />
+      <point x="40.5" y="27.5" />
+    </edge>
+    <edge source="com.nchu.decorator.APP" target="com.nchu.decorator.Person">
+      <point x="49.125" y="-27.5" />
+      <point x="321.7532051282051" y="355.0" />
+      <point x="455.4711538461538" y="355.0" />
+      <point x="455.4711538461538" y="100.0" />
+      <point x="348.99999999999994" y="100.0" />
+      <point x="69.0" y="40.0" />
+    </edge>
+    <edge source="com.nchu.decorator.ClothingDecorator" target="com.nchu.decorator.Person">
+      <point x="0.0" y="-27.5" />
+      <point x="275.3044871794871" y="120.0" />
+      <point x="279.99999999999994" y="120.0" />
+      <point x="0.0" y="40.0" />
+    </edge>
+    <edge source="com.nchu.decorator.APP" target="com.nchu.decorator.Shirt">
+      <point x="16.375" y="-27.5" />
+      <point x="289.0032051282051" y="345.0" />
+      <point x="364.4711538461538" y="345.0" />
+      <point x="0.0" y="40.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.1911111111111112" x="343.94402985074623" y="221.77798507462686" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Inner Classes</Category>
+    <Category>Properties</Category>
+    <Category>Methods</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
