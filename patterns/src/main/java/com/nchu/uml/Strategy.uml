@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>com.nchu.strategy.App</OriginalElement>
+  <nodes>
+    <node x="213.0" y="260.0">com.nchu.strategy.App</node>
+    <node x="201.0" y="0.0">com.nchu.strategy.Strategy</node>
+    <node x="201.0" y="130.0">com.nchu.strategy.SHA1Strategy</node>
+    <node x="374.0" y="130.0">com.nchu.strategy.MD5Strategy</node>
+    <node x="0.0" y="105.0">com.nchu.strategy.Context</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="com.nchu.strategy.Context" target="com.nchu.strategy.Strategy">
+      <point x="-45.25" y="-52.5" />
+      <point x="45.25" y="75.0" />
+      <point x="216.3" y="75.0" />
+      <point x="-61.19999999999999" y="27.5" />
+    </edge>
+    <edge source="com.nchu.strategy.App" target="com.nchu.strategy.MD5Strategy">
+      <point x="25.80000000000001" y="-27.5" />
+      <point x="303.3" y="230.0" />
+      <point x="450.5" y="230.0" />
+      <point x="0.0" y="27.5" />
+    </edge>
+    <edge source="com.nchu.strategy.SHA1Strategy" target="com.nchu.strategy.Strategy">
+      <point x="0.0" y="-27.5" />
+      <point x="0.0" y="27.5" />
+    </edge>
+    <edge source="com.nchu.strategy.App" target="com.nchu.strategy.SHA1Strategy">
+      <point x="0.0" y="-27.5" />
+      <point x="0.0" y="27.5" />
+    </edge>
+    <edge source="com.nchu.strategy.App" target="com.nchu.strategy.Strategy">
+      <point x="51.60000000000002" y="-27.5" />
+      <point x="329.1" y="240.0" />
+      <point x="537.5" y="240.0" />
+      <point x="537.5" y="75.0" />
+      <point x="338.7" y="75.0" />
+      <point x="61.19999999999999" y="27.5" />
+    </edge>
+    <edge source="com.nchu.strategy.App" target="com.nchu.strategy.Context">
+      <point x="-25.80000000000001" y="-27.5" />
+      <point x="251.7" y="230.0" />
+      <point x="135.75" y="230.0" />
+      <point x="45.25" y="52.5" />
+    </edge>
+    <edge source="com.nchu.strategy.MD5Strategy" target="com.nchu.strategy.Strategy">
+      <point x="0.0" y="-27.5" />
+      <point x="450.5" y="85.0" />
+      <point x="308.09999999999997" y="85.0" />
+      <point x="30.599999999999966" y="27.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.1" x="325.74999999999994" y="164.24999999999994" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Inner Classes</Category>
+    <Category>Constructors</Category>
+    <Category>Properties</Category>
+    <Category>Methods</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
