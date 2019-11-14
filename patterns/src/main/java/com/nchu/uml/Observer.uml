@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>com.nchu.observer.APP</OriginalElement>
+  <nodes>
+    <node x="0.0" y="240.0">java.util.Observer</node>
+    <node x="591.0" y="227.0">com.nchu.observer.Artical</node>
+    <node x="212.30952380952382" y="0.0">java.lang.Deprecated</node>
+    <node x="199.75" y="454.0">com.nchu.observer.User</node>
+    <node x="458.0" y="564.0">com.nchu.observer.APP</node>
+    <node x="301.0" y="136.0">java.util.Observable</node>
+    <node x="548.7083333333333" y="454.0">com.nchu.observer.Blog</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="com.nchu.observer.APP" target="com.nchu.observer.Blog">
+      <point x="16.625" y="-30.0" />
+      <point x="541.125" y="534.0" />
+      <point x="598.4583333333333" y="534.0" />
+      <point x="-49.75" y="30.0" />
+    </edge>
+    <edge source="com.nchu.observer.User" target="com.nchu.observer.Artical">
+      <point x="93.66666666666669" y="-30.0" />
+      <point x="433.9166666666667" y="434.0" />
+      <point x="614.0" y="434.0" />
+      <point x="-46.0" y="43.0" />
+    </edge>
+    <edge source="java.util.Observable" target="java.lang.Deprecated">
+      <point x="0.0" y="-134.0" />
+      <point x="436.0" y="111.0" />
+      <point x="369.05952380952385" y="111.0" />
+      <point x="52.25" y="43.0" />
+    </edge>
+    <edge source="com.nchu.observer.Blog" target="java.util.Observable">
+      <point x="-66.33333333333331" y="-30.0" />
+      <point x="581.875" y="424.0" />
+      <point x="503.5" y="424.0" />
+      <point x="67.5" y="134.0" />
+    </edge>
+    <edge source="com.nchu.observer.Blog" target="com.nchu.observer.Artical">
+      <point x="66.33333333333331" y="-30.0" />
+      <point x="714.5416666666666" y="434.0" />
+      <point x="706.0" y="434.0" />
+      <point x="46.0" y="43.0" />
+    </edge>
+    <edge source="com.nchu.observer.User" target="java.util.Observer">
+      <point x="-93.66666666666669" y="-30.0" />
+      <point x="246.58333333333331" y="434.0" />
+      <point x="140.5" y="434.0" />
+      <point x="0.0" y="30.0" />
+    </edge>
+    <edge source="com.nchu.observer.APP" target="com.nchu.observer.User">
+      <point x="-49.875" y="-30.0" />
+      <point x="474.625" y="544.0" />
+      <point x="270.0" y="544.0" />
+      <point x="-70.25" y="30.0" />
+    </edge>
+    <edge source="com.nchu.observer.User" target="java.util.Observable">
+      <point x="0.0" y="-30.0" />
+      <point x="340.25" y="434.0" />
+      <point x="368.5" y="434.0" />
+      <point x="-67.5" y="134.0" />
+    </edge>
+    <edge source="java.util.Observer" target="java.lang.Deprecated">
+      <point x="0.0" y="-30.0" />
+      <point x="140.5" y="111.0" />
+      <point x="264.55952380952385" y="111.0" />
+      <point x="-52.25" y="43.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.22503325692204" x="457.9465873425877" y="306.7556937351967" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Methods</Category>
+    <Category>Properties</Category>
+    <Category>Inner Classes</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
