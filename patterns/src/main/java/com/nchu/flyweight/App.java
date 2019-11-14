@@ -11,6 +11,7 @@ public class App {
     @Test
     public void test(){
         FlyWeightFacotry facotry = new FlyWeightFacotry();
+
         FlyWeight flyWeight = facotry.getFlyweight("one");
         flyWeight.doOperation("");
 
