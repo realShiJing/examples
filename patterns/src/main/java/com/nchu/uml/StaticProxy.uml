@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>com.nchu.proxy.staticproxy.App</OriginalElement>
+  <nodes>
+    <node x="95.5" y="-30.0">com.nchu.proxy.staticproxy.App</node>
+    <node x="64.5" y="290.0">com.nchu.proxy.staticproxy.RealSubject</node>
+    <node x="60.5" y="116.5">com.nchu.proxy.staticproxy.ProxySubject</node>
+    <node x="344.5" y="130.0">com.nchu.proxy.staticproxy.Subject</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="com.nchu.proxy.staticproxy.RealSubject" target="com.nchu.proxy.staticproxy.Subject">
+      <point x="95.5" y="0.0" />
+      <point x="400.0" y="320.0" />
+      <point x="-40.0" y="30.0" />
+    </edge>
+    <edge source="com.nchu.proxy.staticproxy.ProxySubject" target="com.nchu.proxy.staticproxy.RealSubject">
+      <point x="0.0" y="43.5" />
+      <point x="0.0" y="-30.0" />
+    </edge>
+    <edge source="com.nchu.proxy.staticproxy.App" target="com.nchu.proxy.staticproxy.ProxySubject">
+      <point x="0.0" y="30.0" />
+      <point x="0.0" y="-43.5" />
+    </edge>
+    <edge source="com.nchu.proxy.staticproxy.ProxySubject" target="com.nchu.proxy.staticproxy.Subject">
+      <point x="-99.5" y="0.0" />
+      <point x="0.0" y="160.0" />
+      <point x="0.0" y="400.0" />
+      <point x="440.0" y="400.0" />
+      <point x="0.0" y="30.0" />
+    </edge>
+    <edge source="com.nchu.proxy.staticproxy.App" target="com.nchu.proxy.staticproxy.Subject">
+      <point x="64.5" y="0.0" />
+      <point x="440.0" y="0.0" />
+      <point x="0.0" y="-30.0" />
+    </edge>
+  </edges>
+  <settings layout="Orthogonal" zoom="1.0" x="161.0" y="177.0" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Inner Classes</Category>
+    <Category>Properties</Category>
+    <Category>Methods</Category>
+    <Category>Constructors</Category>
+    <Category>Fields</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
