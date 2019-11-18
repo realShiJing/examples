@@ -13,9 +13,9 @@ public class App {
     @Test
     public void test(){
         //创建目标对象
-        Subject subject = new RealSubject();
+        RealSubject subject = new RealSubject();
         //获取代理对象
-        Subject proxyInstance =(Subject) new MyMethodInterceptor(subject).getProxyInstance();
+        RealSubject proxyInstance =(RealSubject) new MyMethodInterceptor(subject).getProxyInstance();
         //执行代理对象的方法
         proxyInstance.doOperation();
     }
