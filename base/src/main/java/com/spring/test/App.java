@@ -2,7 +2,10 @@ package com.spring.test;
 
 import org.junit.Test;
 import org.springframework.core.io.*;
+import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
+import org.springframework.core.io.support.ResourcePatternResolver;
 
+import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 
@@ -72,6 +75,27 @@ public class App {
             } catch (MalformedURLException e) {
                 System.out.println(schemes[i] + " is not support");
             }
+        }
+    }
+
+    /**
+     * @Description ResourcePatternResolver 加载多个资源
+     * @Author yangsj
+     * @Date 2019-11-14 21:45
+     **/
+    @Test
+    public void ResourcePatternResolverTest() throws IOException {
+        ResourcePatternResolver resourcePatternResolver = new PathMatchingResourcePatternResolver();
+        //classpath: 表示加载当前类路径中所有匹配的资源
+        Resource[] resources = resourcePatternResolver.getResources("classpath:org/springframework/**/*.xml");
+        for (Resource resource : resources) {
+            System.out.println(resource.getFilename());
+        }
+        System.out.println("---------------------------");
+        //classpath*: 表示加载类路径中所有匹配的资源(包括jar包中的内容)
+        resources = resourcePatternResolver.getResources("classpath*:**/*.xml");
+        for (Resource resource : resources) {
+            System.out.println(resource.getURL().getPath()); //文件绝对路径
         }
     }
 }
