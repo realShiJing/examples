@@ -27,6 +27,31 @@
             <artifactId>junit</artifactId>
             <version>4.11</version>
         </dependency>
+
+        <!--Cglib 动态代理依赖 begin-->
+        <dependency>
+            <groupId>asm</groupId>
+            <artifactId>asm</artifactId>
+            <version>3.3.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>asm</groupId>
+            <artifactId>asm-commons</artifactId>
+            <version>3.3.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>asm</groupId>
+            <artifactId>asm-tree</artifactId>
+            <version>3.3.1</version>
+        </dependency>
+        <dependency>
+            <groupId>cglib</groupId>
+            <artifactId>cglib</artifactId>
+            <version>2.2.2</version>
+        </dependency>
+        <!--Cglib 动态代理依赖 end-->
     </dependencies>
 
     <build>

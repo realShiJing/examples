@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>com.nchu.proxy.cglibproxy.App</OriginalElement>
+  <nodes>
+    <node x="415.75" y="0.0">net.sf.cglib.proxy.Callback</node>
+    <node x="255.24999999999997" y="81.0">net.sf.cglib.proxy.MethodInterceptor</node>
+    <node x="51.24999999999997" y="81.0">com.nchu.proxy.cglibproxy.Subject</node>
+    <node x="0.0" y="211.0">com.nchu.proxy.cglibproxy.RealSubject</node>
+    <node x="129.99999999999994" y="341.0">com.nchu.proxy.cglibproxy.App</node>
+    <node x="255.24999999999997" y="186.0">com.nchu.proxy.cglibproxy.MyMethodInterceptor</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="net.sf.cglib.proxy.MethodInterceptor" target="net.sf.cglib.proxy.Callback">
+      <point x="0.0" y="-27.5" />
+      <point x="0.0" y="15.5" />
+    </edge>
+    <edge source="com.nchu.proxy.cglibproxy.MyMethodInterceptor" target="net.sf.cglib.proxy.MethodInterceptor">
+      <point x="0.0" y="-52.5" />
+      <point x="0.0" y="27.5" />
+    </edge>
+    <edge source="com.nchu.proxy.cglibproxy.App" target="com.nchu.proxy.cglibproxy.Subject">
+      <point x="2.8421709430404007E-14" y="-27.5" />
+      <point x="194.49999999999997" y="161.0" />
+      <point x="189.24999999999997" y="161.0" />
+      <point x="46.0" y="27.5" />
+    </edge>
+    <edge source="com.nchu.proxy.cglibproxy.App" target="com.nchu.proxy.cglibproxy.RealSubject">
+      <point x="-42.99999999999997" y="-27.5" />
+      <point x="151.49999999999997" y="316.0" />
+      <point x="92.0" y="316.0" />
+      <point x="0.0" y="27.5" />
+    </edge>
+    <edge source="com.nchu.proxy.cglibproxy.App" target="com.nchu.proxy.cglibproxy.MyMethodInterceptor">
+      <point x="43.00000000000003" y="-27.5" />
+      <point x="237.49999999999997" y="316.0" />
+      <point x="465.25" y="316.0" />
+      <point x="0.0" y="52.5" />
+    </edge>
+    <edge source="com.nchu.proxy.cglibproxy.RealSubject" target="com.nchu.proxy.cglibproxy.Subject">
+      <point x="0.0" y="-27.5" />
+      <point x="92.0" y="161.0" />
+      <point x="97.24999999999997" y="161.0" />
+      <point x="-46.0" y="27.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="189.0" y="226.0" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Properties</Category>
+    <Category>Inner Classes</Category>
+    <Category>Methods</Category>
+    <Category>Fields</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
