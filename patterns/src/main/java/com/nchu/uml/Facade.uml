@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>com.nchu.facade.Client</OriginalElement>
+  <nodes>
+    <node x="0.0" y="0.0">com.nchu.facade.SystemA</node>
+    <node x="168.0" y="305.0">com.nchu.facade.Client</node>
+    <node x="172.0" y="0.0">com.nchu.facade.SystemB</node>
+    <node x="343.0" y="0.0">com.nchu.facade.SystemC</node>
+    <node x="155.5" y="104.0">com.nchu.facade.Facade</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="com.nchu.facade.Client" target="com.nchu.facade.Facade">
+      <point x="39.75" y="-27.0" />
+      <point x="287.25" y="280.0" />
+      <point x="293.5" y="280.0" />
+      <point x="46.0" y="75.5" />
+    </edge>
+    <edge source="com.nchu.facade.Facade" target="com.nchu.facade.SystemC">
+      <point x="76.66666666666669" y="-75.5" />
+      <point x="324.1666666666667" y="84.0" />
+      <point x="457.0" y="84.0" />
+      <point x="38.0" y="27.0" />
+    </edge>
+    <edge source="com.nchu.facade.Facade" target="com.nchu.facade.SystemB">
+      <point x="15.333333333333314" y="-75.5" />
+      <point x="262.8333333333333" y="84.0" />
+      <point x="285.25" y="84.0" />
+      <point x="37.75" y="27.0" />
+    </edge>
+    <edge source="com.nchu.facade.Facade" target="com.nchu.facade.SystemA">
+      <point x="-46.00000000000003" y="-75.5" />
+      <point x="201.5" y="74.0" />
+      <point x="114.0" y="74.0" />
+      <point x="38.0" y="27.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="-2.5" y="210.0" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Properties</Category>
+    <Category>Inner Classes</Category>
+    <Category>Methods</Category>
+    <Category>Fields</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
