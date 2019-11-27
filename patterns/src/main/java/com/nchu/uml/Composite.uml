@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>com.nchu.composite.App</OriginalElement>
+  <nodes>
+    <node x="185.15" y="0.0">com.nchu.composite.File</node>
+    <node x="180.0" y="88.0">com.nchu.composite.Folder</node>
+    <node x="0.0" y="100.0">com.nchu.composite.Document</node>
+    <node x="156.15" y="241.0">com.nchu.composite.App</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="com.nchu.composite.App" target="com.nchu.composite.Folder">
+      <point x="8.75" y="-14.0" />
+      <point x="199.9" y="211.0" />
+      <point x="247.5" y="211.0" />
+      <point x="0.0" y="51.5" />
+    </edge>
+    <edge source="com.nchu.composite.App" target="com.nchu.composite.Document">
+      <point x="-8.75" y="-14.0" />
+      <point x="182.4" y="211.0" />
+      <point x="120.0" y="211.0" />
+      <point x="40.0" y="39.5" />
+    </edge>
+    <edge source="com.nchu.composite.Document" target="com.nchu.composite.File">
+      <point x="40.0" y="-39.5" />
+      <point x="120.0" y="58.0" />
+      <point x="204.65" y="58.0" />
+      <point x="-19.5" y="14.0" />
+    </edge>
+    <edge source="com.nchu.composite.App" target="com.nchu.composite.File">
+      <point x="26.25" y="-14.0" />
+      <point x="217.4" y="221.0" />
+      <point x="325.5" y="221.0" />
+      <point x="325.5" y="48.0" />
+      <point x="256.65" y="48.0" />
+      <point x="32.5" y="14.0" />
+    </edge>
+    <edge source="com.nchu.composite.Folder" target="com.nchu.composite.File">
+      <point x="-45.0" y="-51.5" />
+      <point x="202.5" y="68.0" />
+      <point x="217.65" y="68.0" />
+      <point x="-6.5" y="14.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.3000000000000003" x="170.26923076923083" y="119.2307692307692" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Constructors</Category>
+    <Category>Fields</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
