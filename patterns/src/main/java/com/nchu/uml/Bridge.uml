@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>com.nchu.bridge.App</OriginalElement>
+  <nodes>
+    <node x="164.0" y="312.0">com.nchu.bridge.Truck</node>
+    <node x="0.0" y="334.0">com.nchu.bridge.PistonEngine</node>
+    <node x="463.0" y="334.0">com.nchu.bridge.GasTurbineEngine</node>
+    <node x="246.0" y="0.0">com.nchu.bridge.Engine</node>
+    <node x="239.33333333333331" y="117.0">com.nchu.bridge.Car</node>
+    <node x="254.83333333333331" y="473.0">com.nchu.bridge.App</node>
+    <node x="320.0" y="312.0">com.nchu.bridge.Bus</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="com.nchu.bridge.PistonEngine" target="com.nchu.bridge.Engine">
+      <point x="0.0" y="-28.5" />
+      <point x="72.0" y="77.0" />
+      <point x="256.5833333333333" y="77.0" />
+      <point x="-52.916666666666686" y="28.5" />
+    </edge>
+    <edge source="com.nchu.bridge.App" target="com.nchu.bridge.Bus">
+      <point x="15.571428571428555" y="-28.5" />
+      <point x="324.90476190476187" y="433.0" />
+      <point x="381.5" y="433.0" />
+      <point x="0.0" y="50.5" />
+    </edge>
+    <edge source="com.nchu.bridge.App" target="com.nchu.bridge.Car">
+      <point x="0.0" y="-28.5" />
+      <point x="309.5" y="287.0" />
+      <point x="306.3333333333333" y="287.0" />
+      <point x="0.0" y="72.5" />
+    </edge>
+    <edge source="com.nchu.bridge.Bus" target="com.nchu.bridge.Engine">
+      <point x="41.0" y="-50.5" />
+      <point x="422.5" y="87.0" />
+      <point x="341.25" y="87.0" />
+      <point x="31.75" y="28.5" />
+    </edge>
+    <edge source="com.nchu.bridge.App" target="com.nchu.bridge.Truck">
+      <point x="-15.571428571428555" y="-28.5" />
+      <point x="293.76190476190476" y="433.0" />
+      <point x="231.5" y="433.0" />
+      <point x="0.0" y="50.5" />
+    </edge>
+    <edge source="com.nchu.bridge.Bus" target="com.nchu.bridge.Car">
+      <point x="-41.0" y="-50.5" />
+      <point x="340.5" y="287.0" />
+      <point x="333.1333333333333" y="287.0" />
+      <point x="26.80000000000001" y="72.5" />
+    </edge>
+    <edge source="com.nchu.bridge.App" target="com.nchu.bridge.PistonEngine">
+      <point x="-31.142857142857167" y="-28.5" />
+      <point x="278.19047619047615" y="443.0" />
+      <point x="108.0" y="443.0" />
+      <point x="36.0" y="28.5" />
+    </edge>
+    <edge source="com.nchu.bridge.GasTurbineEngine" target="com.nchu.bridge.Engine">
+      <point x="0.0" y="-28.5" />
+      <point x="551.0" y="77.0" />
+      <point x="362.4166666666667" y="77.0" />
+      <point x="52.916666666666686" y="28.5" />
+    </edge>
+    <edge source="com.nchu.bridge.App" target="com.nchu.bridge.GasTurbineEngine">
+      <point x="31.14285714285711" y="-28.5" />
+      <point x="340.4761904761904" y="443.0" />
+      <point x="507.0" y="443.0" />
+      <point x="-44.0" y="28.5" />
+    </edge>
+    <edge source="com.nchu.bridge.Truck" target="com.nchu.bridge.Engine">
+      <point x="-45.0" y="-50.5" />
+      <point x="186.5" y="87.0" />
+      <point x="277.75" y="87.0" />
+      <point x="-31.75" y="28.5" />
+    </edge>
+    <edge source="com.nchu.bridge.Car" target="com.nchu.bridge.Engine">
+      <point x="33.5" y="-72.5" />
+      <point x="339.8333333333333" y="97.0" />
+      <point x="320.0833333333333" y="97.0" />
+      <point x="10.583333333333314" y="28.5" />
+    </edge>
+    <edge source="com.nchu.bridge.Truck" target="com.nchu.bridge.Car">
+      <point x="45.0" y="-50.5" />
+      <point x="276.5" y="287.0" />
+      <point x="279.5333333333333" y="287.0" />
+      <point x="-26.80000000000001" y="72.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.969090909090909" x="329.9726154089638" y="257.89358240106037" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Constructors</Category>
+    <Category>Methods</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
