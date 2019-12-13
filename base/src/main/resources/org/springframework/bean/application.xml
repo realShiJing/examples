@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+<!--    自定义 propertyPlaceholderConfigurer 测试占位符的应用-->
+    <bean id="PropertyPlaceholderConfigurer" class="com.spring.test.propertyplaceholderconfigurer.CustomPropertyConfig">
+        <property name="locations">
+            <list>
+                <value>classpath:org/springframework/bean/application-dev.properties</value>
+                <value>classpath:org/springframework/bean/application-test.properties</value>
+                <value>classpath:org/springframework/bean/application-prod.properties</value>
+            </list>
+        </property>
+    </bean>
+    <bean id="testBean" class="com.spring.test.propertyplaceholderconfigurer.TestBean">
+        <property name="name" value="${testbean.name}"></property>
+    </bean>
+
+    <bean class="org.springframework.beans.factory.config.PropertyOverrideConfigurer">
+        <property name="locations">
+            <list>
+<!--                重置 configBean 的 name 属性值-->
+                <value>classpath:org/springframework/bean/propertyoverrideconfigurer.properties</value>
+            </list>
+        </property>
+    </bean>
+
+    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="locations">
+            <list>
+                <value>classpath:org/springframework/bean/application-dev.properties</value>
+            </list>
+        </property>
+    </bean>
+    <!--    PropertyOverrideConfigurer 会覆盖掉 PropertyPlaceholderConfigurer 定义的值-->
+    <bean id="configBean" class="com.spring.test.propertyoverrideconfigurer.ConfigBean">
+        <property name="name" value="${testbean.name}"></property>
+    </bean>
+
+</beans>

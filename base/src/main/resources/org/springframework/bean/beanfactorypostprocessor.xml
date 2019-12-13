@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!--    测试 BeanFactoryPostProcessor -->
+    <bean id="testBean" class="com.spring.test.beanfactorypostprocessor.TestBean">
+        <property name="name" value="yangsj"></property>
+        <property name="age" value="24"></property>
+    </bean>
+   <bean id="beanFactoryPostProcessor1" class="com.spring.test.beanfactorypostprocessor.BeanFactoryPostProcessor_1"/>
+   <bean id="beanFactoryPostProcessor2" class="com.spring.test.beanfactorypostprocessor.BeanFactoryPostProcessor_2"/>
+
+
+</beans>

@@ -1,6 +1,9 @@
-package com.spring.test;
+package com.spring.test.testbean;
 
 import org.junit.Test;
+import org.springframework.beans.factory.support.DefaultListableBeanFactory;
+import org.springframework.beans.factory.support.SimpleBeanDefinitionRegistry;
+import org.springframework.beans.factory.xml.XmlBeanDefinitionReader;
 import org.springframework.core.io.*;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.core.io.support.ResourcePatternResolver;
@@ -97,5 +100,38 @@ public class App {
         for (Resource resource : resources) {
             System.out.println(resource.getURL().getPath()); //文件绝对路径
         }
+    }
+
+
+    /**
+     * @Description  解析XML配置文件成对应的BeanDefinition单元测试
+     * XML Resource => XML Document => Bean Definition
+     * @Author yangsj
+     * @Date 2019-11-10 17:11
+     **/
+    @Test
+    public void withFreshInputStream() {
+        //获取 BeanDefinitionRegistry
+        SimpleBeanDefinitionRegistry registry = new SimpleBeanDefinitionRegistry();
+        //获取资源
+        Resource resource = new ClassPathResource("org/springframework/bean/bean.xml");
+        //根据 BeanDefinitionRegistry 创建一个对象解析器
+        new XmlBeanDefinitionReader(registry).loadBeanDefinitions(resource);
+    }
+
+    
+    /**
+     * @Description 从容器中获取 bean
+     * 当我们显示或者隐式地调用 BeanFactory#getBean(String name) 方法时，则会触发加载 Bean 阶段。
+     * @Author yangsj
+     * @Date 2019/11/27 11:01
+     **/
+    @Test
+    public void getBeanTest(){
+        DefaultListableBeanFactory factory = new DefaultListableBeanFactory();
+        Resource resource = new ClassPathResource("org/springframework/bean/bean.xml");
+        new XmlBeanDefinitionReader(factory).loadBeanDefinitions(resource);
+        TestBean bean = (TestBean) factory.getBean("multiAliased");
+        System.out.println(bean);
     }
 }

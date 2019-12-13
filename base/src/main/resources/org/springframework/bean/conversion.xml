@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!--    自定义 类型转换 -->
+    <bean id="customConverter" class="com.spring.test.conversionservice.CustomConverter"></bean>
+    <!--    向 ConversionServiceFactoryBean 中注入-->
+    <bean id="conversionService" class="org.springframework.context.support.ConversionServiceFactoryBean">
+       <property name="converters">
+           <set>
+              <ref bean="customConverter"/>
+           </set>
+       </property>
+    </bean>
+
+    <bean id="studentService" class="com.spring.test.conversionservice.StudentService">
+        <property name="student" value="18#yangsj"></property>
+    </bean>
+
+</beans>
