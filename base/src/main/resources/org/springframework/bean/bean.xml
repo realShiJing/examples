@@ -2,6 +2,25 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
-    <!--用于测试，无实际用途-->
+    <!--用于测试-->
+    <!--自定义Aware-->
+    <bean id="myApplicationAware" class="com.spring.test.aware.MyApplicationAware"></bean>
+    <!--自定义BeanPostProcessor-->
+    <bean id="beanPostProcessorTest" class="com.spring.test.beanpostprocessor.BeanPostProcessorTest"></bean>
+    <!--测试InitializingBean-->
+    <bean id="initializingBeanTest" class="com.spring.test.initializingbean.InitializingBeanTest" init-method="setOtherName">
+        <property name="name" value="yangsj 1号"/>
+    </bean>
+    <!--测试 Spring 管理下的 bean 的生命周期-->
+    <bean id="lifeCycleBean" class="com.spring.test.lifecycle.LifeCycleBean" init-method="initMethod" destroy-method="destroyMethod">
+        <property name="name" value="nchu"/>
+    </bean>
+    <!--别名-->
+    <alias name="multiAliased" alias="alias3"/>
 
+    <bean id="multiAliased" class="com.spring.test.testbean.TestBean" name="alias1,alias2">
+        <property name="name"><value>aliased</value></property>
+    </bean>
+
+    <alias name="multiAliased" alias="alias4"/>
 </beans>
