@@ -11,12 +11,14 @@
   </context-param>
 
   <!--  Bootstraps the root web application context before servlet initialization-->
+  <!-- 这是一个 javax.servlet.ServletContextListener 对象， 会初始化一个Root Spring WebApplicationContext 容器 -->
   <listener>
     <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
   </listener>
 
   <!-- SpringMVC配置 -->
   <!-- The front controller of this Spring Web application, responsible for handling all application requests -->
+  <!-- 这是一个 javax.servlet.http.HttpServlet 对象，它除了拦截我们制定的 *.do 请求外，也会初始化一个属于它的 Spring WebApplicationContext 容器 -->
   <servlet>
     <servlet-name>spring</servlet-name>
     <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
