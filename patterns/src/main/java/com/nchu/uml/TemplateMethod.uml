@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>com.nchu.templatemethod.App</OriginalElement>
+  <nodes>
+    <node x="192.0" y="334.0">com.nchu.templatemethod.App</node>
+    <node x="171.0" y="179.0">com.nchu.templatemethod.Bus</node>
+    <node x="171.0" y="0.0">com.nchu.templatemethod.Car</node>
+    <node x="0.0" y="179.0">com.nchu.templatemethod.Truck</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="com.nchu.templatemethod.Bus" target="com.nchu.templatemethod.Car">
+      <point x="0.0" y="-52.5" />
+      <point x="0.0" y="64.5" />
+    </edge>
+    <edge source="com.nchu.templatemethod.Truck" target="com.nchu.templatemethod.Car">
+      <point x="0.0" y="-52.5" />
+      <point x="75.5" y="154.0" />
+      <point x="196.16666666666666" y="154.0" />
+      <point x="-50.33333333333334" y="64.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="161.0" y="195.5" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Constructors</Category>
+    <Category>Methods</Category>
+    <Category>Properties</Category>
+    <Category>Inner Classes</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
