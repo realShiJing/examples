@@ -9,23 +9,31 @@ public class Account {
     // 账户余额
     private int balance;
 
+    private int id;
     /*private Object lock;*/
 
 
-    Account(int balance/*,Object lock*/){
+    Account(int balance/*,Object lock*/,int id){
         this.balance = balance;
         /*this.lock = lock;*/
+        this.id = id;
     }
     /**
      * 转账
      * @param target 目标账户
      * @param amt 转出金额
      */
-    public synchronized void transfer(Account target, int amt) {
+    public void transfer(Account target, int amt) {
+        Account left = this;
+        Account right = target;
+        if(this.id > target.id){
+            left = target;
+            right = this;
+        }
        /* synchronized (lock){*/
         /* synchronized (Account.class){*/
-        synchronized (this) {
-            synchronized (target){
+        synchronized (left) {
+            synchronized (right){
                 if(this.balance < amt){
                     return;
                 }

@@ -13,8 +13,8 @@ public class App {
         try {
            /* Object lock = new Object();*/
             for (int i = 0; i < 100000; i++) {
-                Account accountA = new Account(200);
-                Account accountB = new Account(200);
+                Account accountA = new Account(200,1);
+                Account accountB = new Account(200,2);
                 //Account accountC= new Account(200);
                 Thread threadA = new Thread(()->{
                     accountA.transfer(accountB,100);
