@@ -23,7 +23,7 @@ public class Account {
      */
     public synchronized void transfer(Account target, int amt) {
        /* synchronized (lock){*/
-         synchronized (Account.class){
+        /* synchronized (Account.class){*/
             if(this.balance < amt){
                 return;
             }
@@ -31,7 +31,7 @@ public class Account {
             this.balance -= amt;
             // 向目标账户中转入金额
             target.balance += amt;
-        }
+        /*}*/
     }
 
     public int getBalance() {
