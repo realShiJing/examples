@@ -12,15 +12,15 @@ public class App {
     public void test(){
         try {
            /* Object lock = new Object();*/
-            for (int i = 0; i < 10000; i++) {
+            for (int i = 0; i < 100000; i++) {
                 Account accountA = new Account(200);
                 Account accountB = new Account(200);
-                Account accountC= new Account(200);
+                //Account accountC= new Account(200);
                 Thread threadA = new Thread(()->{
                     accountA.transfer(accountB,100);
                 });
                 Thread threadB = new Thread(()->{
-                    accountB.transfer(accountC,100);
+                    accountB.transfer(accountA,100);
                 });
 
                 threadA.start();
@@ -29,10 +29,10 @@ public class App {
                 threadA.join();
                 threadB.join();
 
-                if(accountA.getBalance() != 100 || accountB.getBalance() != 200 || accountC.getBalance()!= 300){
+                if(accountA.getBalance() != 200 || accountB.getBalance() != 200){
                     System.out.println("AccountA balance is:"+ accountA.getBalance());
                     System.out.println("AccountB balance is:"+ accountB.getBalance());
-                    System.out.println("AccountC balance is:"+ accountC.getBalance());
+                    //System.out.println("AccountC balance is:"+ accountC.getBalance());
                 }
             }
         }catch (InterruptedException e) {
