@@ -24,13 +24,18 @@ public class Account {
     public synchronized void transfer(Account target, int amt) {
        /* synchronized (lock){*/
         /* synchronized (Account.class){*/
-            if(this.balance < amt){
-                return;
+        synchronized (this) {
+            synchronized (target){
+                if(this.balance < amt){
+                    return;
+                }
+                // 从当前账户中划扣金额
+                this.balance -= amt;
+                // 向目标账户中转入金额
+                target.balance += amt;
             }
-            // 从当前账户中划扣金额
-            this.balance -= amt;
-            // 向目标账户中转入金额
-            target.balance += amt;
+        }
+
         /*}*/
     }
 
