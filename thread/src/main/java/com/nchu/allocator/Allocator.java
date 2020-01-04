@@ -43,17 +43,20 @@ public class Allocator {
      * @Author yangsj
      * @Date 2020-01-04 16:33
      **/
-    public synchronized boolean apply(Object from ,Object to){
+    public synchronized void apply(Object from ,Object to){
         //缓存中包含资源，说明有线程还在操作这些资源
-        if (als.contains(from) || als.contains(to)) {
-            // 此时申请失败
-            return false;
-        } else {
-            //申请成功，标识资源未被占用，当前线程占用资源
-            als.add(from);
-            als.add(to);
-            return true;
+        while (als.contains(from) || als.contains(to)) {
+            // 此时申请失败 ,阻塞当前线程，释放互斥锁
+            try {
+                this.wait();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
         }
+        //申请成功，标识资源未被占用，当前线程占用资源
+        als.add(from);
+        als.add(to);
     }
 
     /**
@@ -64,6 +67,7 @@ public class Allocator {
     public synchronized void free(Object from ,Object to){
         als.remove(from);
         als.remove(to);
+        this.notifyAll();
     }
 
 }

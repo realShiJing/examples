@@ -38,7 +38,7 @@ public class Account {
         /* synchronized (Account.class){*/
         // 循环申请锁，直至申请成功
         // 一次性申请所有资源
-        while (!allocator.apply(this,target));
+        allocator.apply(this,target);
         try {
             synchronized (this) {
                 synchronized (target){
