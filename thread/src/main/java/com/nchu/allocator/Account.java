@@ -1,5 +1,7 @@
 package com.nchu.allocator;
 
+import afu.org.checkerframework.checker.oigj.qual.O;
+
 /**
  * @Decription 银行账户
  * @Author yangsj
@@ -9,14 +11,16 @@ public class Account {
     // 账户余额
     private int balance;
 
-    private int id;
+    // 锁管理者
+    private  Allocator allocator = Allocator.getInstance();
+   /* private int id;*/
     /*private Object lock;*/
 
 
-    Account(int balance/*,Object lock*/,int id){
+    Account(int balance/*,Object lock*//*,int id*/){
         this.balance = balance;
         /*this.lock = lock;*/
-        this.id = id;
+        /*this.id = id;*/
     }
     /**
      * 转账
@@ -24,25 +28,34 @@ public class Account {
      * @param amt 转出金额
      */
     public void transfer(Account target, int amt) {
-        Account left = this;
+        /*Account left = this;
         Account right = target;
         if(this.id > target.id){
             left = target;
             right = this;
-        }
+        }*/
        /* synchronized (lock){*/
         /* synchronized (Account.class){*/
-        synchronized (left) {
-            synchronized (right){
-                if(this.balance < amt){
-                    return;
+        // 循环申请锁，直至申请成功
+        // 一次性申请所有资源
+        allocator.apply(this,target);
+        try {
+            synchronized (this) {
+                synchronized (target){
+                    if(this.balance < amt){
+                        return;
+                    }
+                    // 从当前账户中划扣金额
+                    this.balance -= amt;
+                    // 向目标账户中转入金额
+                    target.balance += amt;
                 }
-                // 从当前账户中划扣金额
-                this.balance -= amt;
-                // 向目标账户中转入金额
-                target.balance += amt;
             }
+        }finally {
+            // 释放锁资源
+            allocator.free(this,target);
         }
+
 
         /*}*/
     }
