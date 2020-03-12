@@ -628,6 +628,53 @@ public class APP {
     }
 
 
+    /**
+     * @Description LinkedHashMap 实现 LRU  缓存算法（Least Recently Used）
+     * @Author yangsj
+     * @Date 2020/3/6 16:41
+     **/
+    @Test
+    public void testLinkedHashMap(){
+        // 默认构造方法 accessOrder = false; 是按照插入顺序排序,所以要利用另外的构造方法传入 accessOrder = true;
+        // 使 linkedHashMap 支持 按访问顺序排序，如从未被访问过，则依然按照插入书序排序
+        LinkedHashMap<String, String> accessOrderedMap = new LinkedHashMap<String, String>(16,0.75f,true){
+            // LinkedHashMap 默认添加元素时，不移除最老节点，通过重写removeEldestEntry 自定义，当链表的节点数量大于一定数目时，进行链表头结点的移除
+            @Override
+            protected boolean removeEldestEntry(Map.Entry<String, String> eldest) {
+                return size()>3;
+            }
+        };
+
+        accessOrderedMap.put("Project2", "Panama");
+        accessOrderedMap.put("Project3", "Loom");
+        accessOrderedMap.put("Project1", "Valhalla");
+
+        // 此时链表的的顺序为插入的顺序
+        accessOrderedMap.forEach((k,v)->{
+            System.out.println(k + ":" + v);
+        });
+
+        // 模拟访问
+        accessOrderedMap.get("Project3");
+        accessOrderedMap.get("Project1");
+        accessOrderedMap.get("Project3");
+        System.out.println("被访问后，链表的顺序：");
+        // 此时链表的顺序为被访问的顺序，未被访问的节点放在head，按访问顺序，最后被访问的节点放在尾部
+        accessOrderedMap.forEach((k,v)->{
+            System.out.println(k + ":" + v);
+        });
+
+        //触发删除
+        accessOrderedMap.put("Project4", "Mission Control");
+        // 如果该 linkedhashMap从未被访问，则链表的顺序为插入的顺序
+        System.out.println("Oldest entry should be removed:");
+        accessOrderedMap.forEach((k,v)->{
+            System.out.println(k + ":" + v);
+        });
+
+    }
+
+
 }
 
 
