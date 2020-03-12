@@ -45,7 +45,7 @@ public class ShellSort {
         for(int i = 2 ; i < arry.length; i++){
             //待插入的元素
             int temp = arry[i];
-            //插入的索引,和前面第gap个元素比较,执行插入排序，步长为5
+            //插入的索引,和前面第gap个元素比较,执行插入排序，步长为2
             int index = i - gap;
             while (index >= 0 && temp < arry[index]){
                 arry[index + gap] = arry[index];
@@ -63,7 +63,7 @@ public class ShellSort {
         for(int i = 1 ; i < arry.length; i++){
             //待插入的元素
             int temp = arry[i];
-            //插入的索引,和前面第gap个元素比较,执行插入排序，步长为5
+            //插入的索引,和前面第gap个元素比较,执行插入排序，步长为1
             int index = i - gap;
             while (index >= 0 && temp < arry[index]){
                 arry[index + gap] = arry[index];
