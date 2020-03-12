@@ -1,7 +1,5 @@
 package com.nchu.allocator;
 
-import afu.org.checkerframework.checker.oigj.qual.O;
-
 /**
  * @Decription 银行账户
  * @Author yangsj

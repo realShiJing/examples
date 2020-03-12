@@ -41,4 +41,24 @@ public class App {
 
 
     }
+    /**
+     * @Description 测试死锁
+     * @Author yangsj
+     * @Date 2020/3/12 9:51
+     **/
+    public static void main(String[] args) {
+        Account accountA = new Account(200);
+        Account accountB = new Account(200);
+        for (int i = 0; i < 100000000; i++) {
+            new Thread(()->{
+                accountA.transfer(accountB,100);
+            }).start();
+            new Thread(()->{
+                accountB.transfer(accountA,100);
+            }).start();
+
+        }
+    }
+
+
 }
