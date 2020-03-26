@@ -16,6 +16,8 @@ import java.math.BigDecimal;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
+import java.util.concurrent.BrokenBarrierException;
+import java.util.concurrent.CyclicBarrier;
 
 /**
  * @description:
@@ -625,8 +627,75 @@ public class APP {
     **/
     public void test29(){
         List<Object> objects = Collections.synchronizedList(new ArrayList<>());
+        InterFaceTest.test();
     }
 
+    /**
+     * @Description 增强for循环遍历删除会出现异常
+     * @Author yangsj
+     * @Date 2019/10/23 16:42
+     **/
+    @Test
+    public void test30(){
+       List<String> list = new ArrayList();
+        list.add("1");
+        list.add("2");
+        for (String i : list) {
+            if(i.equals("2")){
+                list.remove(i);
+            }
+        }
+    }
+
+    /**
+     * @Description  正序删除
+     * 简单来说，移除元素后，后边的元素会往前移动，将空白填充上。
+     * 第一次循环，i=0，移除了第一个元素后，i变为1，但是，同时，由于1的空出，2、3都往前移动一个位置，所以，索引位置不再是1、2，而是0、1
+     * 第二次循环，i=1，3的索引是1，所以只将3加1，而2已经过去了。
+     * @Author yangsj
+     * @Date 2020/3/1 4:49 下午
+     **/
+    @Test
+    public void test31(){
+        List<String> a = new ArrayList<String>();
+        a.add("1");
+        a.add("2");
+        a.add("3");
+        for (int i = 0; i < a.size(); i++) {
+            String e = a.get(i);
+
+            if("1".equals(e)){
+                a.remove(i);
+                // i=i-1; 修正index
+            }else{
+                a.set(i,e+"1");
+            }
+
+        }
+        System.out.println(a);
+    }
+    /**
+     * @Description   倒序删除不会出现数据遗漏的问题
+     * @Author yangsj
+     * @Date 2020/3/1 4:51 下午
+     **/
+    @Test
+    public void test32() {
+        List<String> a = new ArrayList<String>();
+        a.add("1");
+        a.add("2");
+        a.add("3");
+
+        for (int i = a.size() - 1; i >= 0; i--) {
+            String e = a.get(i);
+            if ("2".equals(e)) {
+                a.remove(i);
+            } else {
+                a.set(i, e + "1");
+            }
+        }
+        System.out.println(a);
+    }
 
     /**
      * @Description LinkedHashMap 实现 LRU  缓存算法（Least Recently Used）
@@ -671,9 +740,89 @@ public class APP {
         accessOrderedMap.forEach((k,v)->{
             System.out.println(k + ":" + v);
         });
-
     }
 
+    /**
+     * @Description   ArrayList去重
+     * @Author yangsj
+     * @Date 2020/3/1 5:07 下午
+     **/
+    @Test
+    public void test33(){
+        List<Integer> list = new ArrayList<>();
+        list.add(1);
+        list.add(2);
+        list.add(2);
+        list.add(3);
+        list.add(3);
+        list.add(4);
+        list.add(4);
+        list = new ArrayList<>(new HashSet<>(list));
+        System.out.println(list);
+    }
+
+    /**
+     * @Description 计算机的 CPU核数
+     * @Author yangsj
+     * @Date 2020/3/2 10:07 下午
+     **/
+    @Test
+    public void test34(){
+        System.out.println(Runtime.getRuntime().availableProcessors());
+    }
+
+    @Test
+    public void test35(){
+            CyclicBarrier barrier = new CyclicBarrier(4,()->{
+                System.out.println("--------------");
+            });
+            testCy(barrier);
+    }
+
+    public void testCy(CyclicBarrier barrier){
+        new Thread(()->{
+            System.out.println("A");
+            try {
+                barrier.await();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            } catch (BrokenBarrierException e) {
+                e.printStackTrace();
+            }
+        }).start();
+
+        new Thread(()->{
+            System.out.println("B");
+            try {
+                barrier.await();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            } catch (BrokenBarrierException e) {
+                e.printStackTrace();
+            }
+        }).start();
+
+        new Thread(()->{
+            System.out.println("C");
+            try {
+                barrier.await();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            } catch (BrokenBarrierException e) {
+                e.printStackTrace();
+            }
+        }).start();
+        new Thread(()->{
+            System.out.println("D");
+            try {
+                barrier.await();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            } catch (BrokenBarrierException e) {
+                e.printStackTrace();
+            }
+        }).start();
+    }
 
 }
 
