@@ -19,6 +19,8 @@ import java.util.*;
 import java.util.concurrent.BrokenBarrierException;
 import java.util.concurrent.CyclicBarrier;
 
+import static java.lang.Math.abs;
+
 /**
  * @description:
  * @auther: yangsj
@@ -760,6 +762,165 @@ public class APP {
         list = new ArrayList<>(new HashSet<>(list));
         System.out.println(list);
     }
+    @Test
+    public void test34(){
+        List<String> list = new ArrayList<>();
+        list.add("1");
+        list.add("2");
+        list.add("3");
+        for (String s : list) {
+            if(s.equals("1")){
+                list.remove(s);
+            }
+        }
+    }
+
+
+    /**
+     * @Description 求字符串中数字之和
+     * @Author yangsj
+     * @Date 2020/3/26 13:55
+     **/
+    @Test
+    public void test35(){
+        String str = "我30你40他50";
+        String[] s = str.split("[^0-9]");
+        int sum = 0 ;
+        for (String s1 : s) {
+            if(!s1.equals("")){
+                sum += Integer.parseInt(s1);
+            }
+        }
+        System.out.println(sum);
+    }
+
+
+    /**
+     * @Description 求二进制表示数的中的1的个数
+     * @Author yangsj
+     * @Date 2020/3/26 13:53
+     **/
+    @Test
+    public void test36(){
+      int i = 255;
+      int sum = 0;
+      while (i!=0){
+          sum += i&1;
+          i>>=1;
+      }
+    System.out.println(sum);
+    }
+
+
+    /**
+     * @Description 开根号
+     * @Author yangsj
+     * @Date 2020/3/26 14:28
+     **/
+    @Test
+    public void test37(){
+        int n = 3;
+        double x = 1.0;//设置初值
+        double p = 1e-15;//设置精度
+        while(abs(x*x - n) > p)
+        {
+            x = (x + n / x) / 2.0;
+        }
+        System.out.println(Math.sqrt(n));
+        System.out.println(x);
+    }
+
+
+    /**
+     * @Description 第1个人10，第2个比第1个人大2岁，依次递推，请用递归方式计算出第8个人多大？
+     * @Author yangsj
+     * @Date 2020/3/26 14:36
+     **/
+    @Test
+    public void test38(){
+        System.out.println(computeAge(8));
+    }
+
+    public int computeAge(int i){
+        if( i == 1){
+            return 10;
+        }
+        return  computeAge(i-1)+2;
+    }
+
+
+    /**
+     * @Description 在一个二维数组中，每一行都按照从左到右递增的顺序排序，
+     * 每一列都按照从上到下递增的顺序排序。请完成一个函数，
+     * 输入这样的一个二维数组和一个整数，判断数组中是否含有该整数。
+     * @Author yangsj
+     * @Date 2020/3/26 15:20
+     **/
+    @Test
+    public void test39(){
+        int[][] array = {{1,2,3},{4,5,6},{7,8,9}};
+        boolean b = find(10, array);
+        System.out.println(b);
+    }
+
+    /**
+     * 对每一行进行二分查找
+     * @param target
+     * @param array
+     * @return
+     */
+    public boolean find(int target, int [][] array) {
+        //遍历每一行
+        for(int i=0; i<array.length; i++){
+            int left=0;//行内左指针
+            int rigtht = array[i].length-1;//行内右指针
+            while(left <= rigtht){
+                int j= (left + rigtht)/2;//计算中间值
+                if(target > array[i][j])
+                    left = j+1;
+                else if(target < array[i][j])
+                    rigtht = j-1;
+                else
+                    return true;
+            }
+        }
+        return false;
+    }
+
+    
+    /**
+     * @Description 一个人上台阶可以一次上1个，2个，问这个人上n层的台阶，总共有几种走法
+     * @Author yangsj
+     * @Date 2020/3/26 15:58
+     **/
+    @Test
+    public void test40(){
+        int sum = func(3);
+        System.out.println(sum);
+
+        /*int sum2 = func2(3);
+        System.out.println(sum2);*/
+    }
+    public int func(int x ){
+        int sum = 0;
+        for (int i = 0; i <= x; i++) {
+            for (int j = 0; j <= x/2; j++) {
+                if(i+2*j==x){
+                    System.out.println("i1:"+i+",j2:"+j);
+                    sum++;
+                }
+            }
+        }
+        return sum;
+    }
+
+   /* public int func2(int x){
+        if(x == 1)
+            return 1;
+        if(x == 2)
+            return 2;
+        return func2(x - 1)+func2(x - 2);
+    }*/
 
     /**
      * @Description 计算机的 CPU核数
@@ -767,12 +928,12 @@ public class APP {
      * @Date 2020/3/2 10:07 下午
      **/
     @Test
-    public void test34(){
+    public void test41(){
         System.out.println(Runtime.getRuntime().availableProcessors());
     }
 
     @Test
-    public void test35(){
+    public void test42(){
             CyclicBarrier barrier = new CyclicBarrier(4,()->{
                 System.out.println("--------------");
             });
@@ -824,6 +985,29 @@ public class APP {
         }).start();
     }
 
+   /**
+    * @Description 给定一个M*N的格子或棋盘，从左下角走到右上角的走法总数（每次只能向右或向上移动一个方格边长的距离）
+    * @Author yangsj
+    * @Date 2020/3/26 17:08
+    **/
+   @Test
+   public void test43(){
+       System.out.println(getTraversal(2,3));
+    }
+
+    public int getTraversal(int p, int q) {
+        int num = 0;
+        if (p == 1 && q == 1) {
+            return 1;
+        }
+        if (p > 1) {
+            num += getTraversal(p - 1, q);
+        }
+        if (q > 1) {
+            num += getTraversal(p, q - 1);
+        }
+        return num;
+    }
 }
 
 
