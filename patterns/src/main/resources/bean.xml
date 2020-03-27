@@ -3,5 +3,11 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
     <!--属性 scope = " prototype" 配置就是告诉Spring创建该对象-->
-    <bean id="id01" class="com.nchu.prototype.Person" scope="prototype"/>
+    <bean id="id01" class="com.nchu.prototype.Person" scope="prototype">
+        <property name="animal" ref="dog"></property>
+    </bean>
+    <bean id="dog" class="com.nchu.prototype.Animal" scope="prototype">
+        <property name="name" value="huanhuan"></property>
+        <property name="kind" value="dog"/>
+    </bean>
 </beans>

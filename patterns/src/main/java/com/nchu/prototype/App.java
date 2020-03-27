@@ -63,6 +63,8 @@ public class App {
         System.out.println(person.hashCode());
         System.out.println(person1.hashCode());
         System.out.println("通过Spring原型模式创建的对象是否相同：" + (person == person1));
+        System.out.println("通过Spring原型模式创建的对象是否相同："+(person.getAnimal() == person1.getAnimal()));
+
 
     }
 }
