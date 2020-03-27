@@ -63,19 +63,19 @@ public class BinaryTree {
     }
 
     /**
-     * @Description  前序遍历
+     * @Description  中序遍历
      * @Author yangsj
      * @Date 2019-09-15 21:12
      **/
     public void infixOrder(){
         if(this != null){
-            //对左子树进行前序遍历
+            //对左子树进行中序遍历
             if(this.left != null){
                 this.left.infixOrder();
             }
             //输出中间节点
             System.out.println(this);
-            //对右子树进行前序遍历
+            //对右子树进行中序遍历
             if(this.right != null){
                 this.right.infixOrder();
             }
@@ -89,11 +89,11 @@ public class BinaryTree {
      **/
     public void postOrder(){
         if(this != null){
-            //对左子树进行前序遍历
+            //对左子树进行后序遍历
             if(this.left != null){
                 this.left.postOrder();
             }
-            //对右子树进行前序遍历
+            //对右子树进行后序遍历
             if(this.right != null){
                 this.right.postOrder();
             }
