@@ -13,6 +13,7 @@ import org.junit.Test;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.math.BigDecimal;
+import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -376,7 +377,7 @@ public class APP {
          Integer mount = 500000;//可贷额度，职工本人符合贷款申请条件的，最高可贷50万
          Integer aFundSum =0;//公积金总额
          Integer sum = 0;//月均缴存余额总值
-         Integer balance = 17000 ; //公积金账户余额
+         Integer balance = 34285 ; //公积金账户余额
          Integer value = Math.floorDiv(mount,multiple); //月均缴存余额阀值
          System.out.println("--------》月均缴存余额阀值："+value);
          Integer remainingSum = 0 ;
@@ -1007,6 +1008,32 @@ public class APP {
             num += getTraversal(p, q - 1);
         }
         return num;
+    }
+
+    /**
+     * @Description IBM 官网内存泄漏举例
+     * @Author yangsj
+     * @Date 2020/4/7 13:29
+     **/
+    @Test
+    public void test44(){
+       Vector vactor= new Vector();
+       Object o = new Object();
+       vactor.add(o);
+       o = null;
+       System.out.println(vactor.size());
+    }
+
+    /**
+     * @Description Long类型格式化为金额格式
+     * @Author yangsj
+     * @Date 2020/4/7 13:29
+     **/
+    @Test
+    public void test45(){
+        DecimalFormat decimalFormat = new DecimalFormat("##,##0.00");
+        String format = decimalFormat.format(Long.parseLong("1232312"));
+        System.out.println(format);
     }
 }
 
