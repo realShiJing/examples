@@ -1,9 +1,8 @@
-package com.nchu.test;
+package com.nchu.volatiletest;
 
 import org.junit.Test;
 
 import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * @Decription volatile关键字的相关测试
