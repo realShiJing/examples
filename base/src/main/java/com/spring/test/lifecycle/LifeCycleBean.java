@@ -41,7 +41,7 @@ public class LifeCycleBean implements BeanNameAware, BeanFactoryAware, BeanClass
 
     @Override
     public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {
-        System.out.println("BeanPostProcessor postProcessAfterInitialization 被调用...");
+        System.out.println("BeanPostProcessor postProcessBeforeInitialization 被调用...");
         return bean;
     }
 
