@@ -9,7 +9,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
-    <artifactId>com.example.dubbo.boot.provider</artifactId>
+    <artifactId>example.dubbo.boot.provider</artifactId>
     <version>0.0.1-SNAPSHOT</version>
 
     <name>example.dubbo.boot.provider</name>
