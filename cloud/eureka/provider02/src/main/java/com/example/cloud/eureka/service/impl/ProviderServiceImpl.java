@@ -2,6 +2,7 @@ package com.example.cloud.eureka.service.impl;
 
 import com.example.cloud.eureka.service.ProviderService;
 import com.nchu.cloud.vo.ResultVo;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 /**
@@ -11,12 +12,15 @@ import org.springframework.stereotype.Service;
  **/
 @Service
 public class ProviderServiceImpl implements ProviderService {
+
+    @Value("${server.port}")
+    private String serverPort;
     @Override
     public ResultVo<String> getInfo(String id) {
         ResultVo<String> resultVo = new ResultVo<>();
         resultVo.setCode(0000);
-        resultVo.setData(id+"Hello Eureka");
-        resultVo.setMessage("success!");
+        resultVo.setData(id+"-Hello Eureka");
+        resultVo.setMessage(" success! serverPort:"+serverPort);
         return resultVo;
     }
 }

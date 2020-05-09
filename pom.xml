@@ -19,6 +19,7 @@
         <module>boot</module>
         <module>mq</module>
         <module>dubbo</module>
+        <module>cloud</module>
     </modules>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

@@ -1,5 +1,6 @@
 package com.example.cloud.eureka.config;
 
+import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.client.RestTemplate;
@@ -13,6 +14,7 @@ import org.springframework.web.client.RestTemplate;
 public class ApplicationContextConfig {
 
     @Bean
+    @LoadBalanced//通过服务名访问时必须要加
     public RestTemplate getRestTemplate(){
         return new RestTemplate();
     }

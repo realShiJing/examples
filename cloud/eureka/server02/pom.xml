@@ -5,13 +5,10 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.2.2.RELEASE</version>
+        <version>2.2.7.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-
-    <artifactId>example.cloud.eureka.server01</artifactId>
-
-    <version>0.0.1-SNAPSHOT</version>
+    <artifactId>example.cloud.eureka.server02</artifactId>
 
     <properties>
         <java.version>1.8</java.version>
@@ -29,7 +26,6 @@
             <artifactId>spring-boot-starter-actuator</artifactId>
             <version>2.2.2.RELEASE</version>
         </dependency>
-
     </dependencies>
 
     <build>
