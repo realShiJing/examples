@@ -14,5 +14,6 @@
     <modules>
         <module>interface</module>
         <module>eureka</module>
+        <module>zookeeper</module>
     </modules>
 </project>
