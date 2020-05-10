@@ -1,14 +1,11 @@
 package com.nchu.java8;
 
 import org.junit.Test;
-import org.springframework.cglib.core.Local;
 
 import java.time.DayOfWeek;
 import java.time.LocalDate;
-import java.time.temporal.TemporalAdjuster;
 import java.time.temporal.TemporalAdjusters;
 
-import static java.time.DayOfWeek.MONDAY;
 
 /**
  * @Decription jdk1.8日期处理
