@@ -1,5 +1,6 @@
 package com.example.cloud.eureka.controller;
 
+import com.example.cloud.eureka.loadbalance.LoadBalancer;
 import com.nchu.cloud.vo.ResultVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.ServiceInstance;
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
+import java.net.URI;
 import java.util.List;
 
 /**
@@ -28,6 +30,12 @@ public class ConsumerController {
 
     @Autowired
     private DiscoveryClient discoveryClient;
+
+    /**
+     * 自定义自定义负载均衡器
+     */
+    @Autowired
+    private LoadBalancer loadBalancer;
 
 
     /**
@@ -54,4 +62,25 @@ public class ConsumerController {
         }
         return  ResultVo.success(instances);
     }
+
+
+    /**
+     * @Description 自定义负载均衡规则，测试时需去除 RestTemplate 上的  @LoadBalanced 注解
+     * @Author yangsj
+     * @Date 2020/5/13 11:13
+     **/
+    @GetMapping("/consumer/getInfoBySfLoadBalace/{id}")
+    public ResultVo getInfoBySfLoadBalace(@PathVariable("id")String id){
+        // 通过服务名从注册中心发现服务列表
+        List<ServiceInstance> instances = discoveryClient.getInstances("CLOUD-EUREKA-PROVIDER");
+        if (instances == null || instances.size() <= 0) {
+            return null;
+        }
+        // 根据自定义规则获取服务
+        ServiceInstance serviceInstance = loadBalancer.getService(instances);
+        // 获取服务的 uri ，并发送请求
+        URI uri = serviceInstance.getUri();
+        return restTemplate.getForObject(PROVIDER_URL + "/provider/getInfo/" + id, ResultVo.class);
+    }
+    
 }
