@@ -1,5 +1,7 @@
 package com.example.cloud.eureka.config;
 
+import com.netflix.loadbalancer.IRule;
+import com.netflix.loadbalancer.RandomRule;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -21,4 +23,11 @@ public class ApplicationContextConfig {
     public RestTemplate getRestTemplate(){
         return new RestTemplate();
     }
+
+    @Bean
+    public IRule getIRule(){
+        // 定义为随机
+        return new RandomRule();
+    }
+
 }
