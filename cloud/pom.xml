@@ -12,7 +12,7 @@
     <artifactId>example.cloud</artifactId>
     <packaging>pom</packaging>
     <modules>
-        <module>interface</module>
+        <module>common-api</module>
         <module>eureka</module>
         <module>zookeeper</module>
     </modules>

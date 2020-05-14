@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>zookeeper</artifactId>
+    <artifactId>example.cloud.zookeeper</artifactId>
     <!--统一管理jar包版本-->
     <properties>
         <spring.boot.version>2.2.2.RELEASE</spring.boot.version>

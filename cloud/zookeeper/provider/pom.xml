@@ -17,7 +17,7 @@
     <dependencies>
         <dependency>
             <groupId>com.nchu</groupId>
-            <artifactId>example.cloud.interface</artifactId>
+            <artifactId>example.cloud.common-api</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
         <dependency>
