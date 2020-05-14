@@ -1,0 +1,27 @@
+server:
+  port: 80
+
+spring:
+  application:
+    name: cloud-hystrix-consumer
+
+eureka:
+  instance:
+    # 定制 eureka 管理界面的消费实例名
+    instance-id: hystrix-consumer
+    # 访问路径可以显示ip地址
+    prefer-ip-address: true
+  client:
+    # 向 eureka 注册中心注册
+    register-with-eureka: true
+    fetch-registry: true
+    # eureka 服务地址
+    service-url:
+      # 单机版
+      #defaultZone: http://localhost:7001/eureka
+      # 集群版
+      defaultZone:  http://eureka7001.com:7001/eureka,http://eureka7002.com:7002/eureka
+feign:
+  hystrix:
+    # 在feign中开启Hystrix
+    enabled: true

@@ -17,6 +17,9 @@
         <module>provider01</module>
         <module>provider02</module>
         <module>server01</module>
+        <module>server02</module>
+        <module>feign</module>
+        <module>hystrix</module>
     </modules>
     <!--统一管理jar包版本-->
     <properties>
