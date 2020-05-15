@@ -1,0 +1,11 @@
+curl 命令行模拟 Http 请求
+# 不带任何参数
+curl http://localhost:9527/provider/getInfo/1
+# 携带cookie
+curl http://localhost:9527/provider/getInfo/1 --cookie "username=spectrumrpc"
+# 携带请求头
+curl http://localhost:9527/provider/getInfo/1 -H "X-Request-Id:123456"
+# host
+curl http://localhost:9527/provider/getInfo/1 -H "Host: www.baidu.com"
+# 携带参数
+curl http://localhost:9527/provider/getInfo/1?username=1
