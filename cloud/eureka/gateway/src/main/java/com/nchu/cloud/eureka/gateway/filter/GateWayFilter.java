@@ -17,9 +17,16 @@ import reactor.core.publisher.Mono;
  **/
 @Component
 public class GateWayFilter implements GlobalFilter, Ordered {
+
+    /**
+     * @Description 过滤请求信息，请求必须携带参数name,否则拒绝请求
+     * @Author yangsj
+     * @Date 2020/5/15 18:10
+     **/
     @Override
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
         ServerHttpRequest request = exchange.getRequest();
+
         String name = request.getQueryParams().getFirst("name");
         if(name == null){
             exchange.getResponse().setStatusCode(HttpStatus.NOT_ACCEPTABLE);
