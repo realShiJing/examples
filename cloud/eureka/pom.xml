@@ -21,6 +21,7 @@
         <module>feign</module>
         <module>hystrix</module>
         <module>config</module>
+        <module>stream</module>
     </modules>
     <!--统一管理jar包版本-->
     <properties>
