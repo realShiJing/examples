@@ -20,6 +20,7 @@
         <module>server02</module>
         <module>feign</module>
         <module>hystrix</module>
+        <module>config</module>
     </modules>
     <!--统一管理jar包版本-->
     <properties>
