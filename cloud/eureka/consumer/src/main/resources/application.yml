@@ -4,7 +4,13 @@ server:
 spring:
   application:
     name: cloud-eureka-consumer
-
+  #链路跟踪 官网下载 zipkin-server 并启动后访问 http://localhost:9411/zipkin/
+  zipkin:
+    base-url: http://localhost:9411
+  sleuth:
+    sampler:
+    #采样率值介于 0 到 1 之间，1 则表示全部采集
+      probability: 1
 eureka:
   instance:
     # 定制 eureka 管理界面的消费实例名
