@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * @Decription TODO
+ * @Decription 服务提供者
  * @Author yangsj
  * @Date 2020/5/19 19:26
  **/

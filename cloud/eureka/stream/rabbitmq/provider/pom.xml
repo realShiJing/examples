@@ -8,7 +8,7 @@
         <version>2.3.0.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <artifactId>example.cloud.eureka.stream.rabbit.provider</artifactId>
+    <artifactId>example.cloud.eureka.stream.rabbitmq.provider</artifactId>
 
     <properties>
         <java.version>1.8</java.version>
