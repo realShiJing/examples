@@ -15,6 +15,7 @@
     <modules>
         <module>consumer01</module>
         <module>provider01</module>
+        <module>provider02</module>
     </modules>
 
 
