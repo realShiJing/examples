@@ -53,6 +53,7 @@ public class RedisLock {
                  if("OK".equals(lock)){
                      // 加锁成功后，立即对锁进行校验判断是否需要进行延时
                      this.delay(value);
+                     return;
                  }
                  // 如果加锁失败，轮询进行加锁，直至加锁成功
              }
