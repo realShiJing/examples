@@ -1,3 +1,4 @@
+/*
 package com.nchu.api.redis;
 
 import redis.clients.jedis.Jedis;
@@ -6,11 +7,13 @@ import redis.clients.jedis.JedisPool;
 import java.util.HashMap;
 import java.util.Map;
 
+*/
 /**
  * @description: Redis 重入锁
  * @auther: yangsj
  * @created: 2019/4/28 11:59
- */
+ *//*
+
 public class RedisWithReentrantLock {
     private ThreadLocal<Map<String, Integer>> lockers = new ThreadLocal<>();
 
@@ -21,7 +24,7 @@ public class RedisWithReentrantLock {
     }
 
     private boolean _lock(String key) {
-        return jedis.set(key, "", "nx", "ex", 5L) != null;
+        return jedis.set(key, "", "nx", "px", 5L) != null;
     }
 
     private void _unlock(String key) {
@@ -79,3 +82,4 @@ public class RedisWithReentrantLock {
     }
 
 }
+*/

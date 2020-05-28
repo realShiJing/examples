@@ -24,23 +24,12 @@ public class JedisUtils {
             //最大空闲连接数, 默认10个
             config.setMaxIdle(10);
             //获取连接时的最大等待毫秒数(如果设置为阻塞时BlockWhenExhausted),如果超时就抛异常, 小于零:阻塞不确定的时间,  默认-1
-            config.setMaxWaitMillis(1000);
+            config.setMaxWaitMillis(10000);
             pool = new JedisPool(config, "127.0.0.1", 6379);
         }
         return pool;
     }
 
-    /**
-     * 返还到连接池
-     *
-     * @param pool
-     * @param redis
-     */
-    public static void returnResource(JedisPool pool, Jedis redis) {
-        if (redis != null) {
-            pool.returnResource(redis);
-        }
-    }
 
     /**
      * 获取数据
@@ -59,11 +48,9 @@ public class JedisUtils {
             value = jedis.get(key);
         } catch (Exception e) {
             //释放redis对象
-            pool.returnBrokenResource(jedis);
             e.printStackTrace();
         } finally {
-            //返还到连接池
-            returnResource(pool, jedis);
+            jedis.close();
         }
 
         return value;
