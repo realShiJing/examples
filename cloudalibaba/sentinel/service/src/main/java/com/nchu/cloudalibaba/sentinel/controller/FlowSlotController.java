@@ -96,10 +96,25 @@ public class FlowSlotController {
         return "--------test_EXCEPTION_RATIO";
     }
 
+    /**
+     * @Description  热点key限流，必须制定兜底方法，如果没指定，达到限流规则后，前台页面直接返回 Error Page
+     *
+     *  资源名：hotKey
+     *  限流模式：QPS
+     *  参数索引：0,表示第一个参数
+     *  单机阈值：1 ，统计时间窗口 ：1 ，表示接下来1秒内的QPS达到了1就会触发限流
+     *  高级选项
+     *      参数类型：八种基本类型，热点key的类型，这里是java.lang.String
+     *      参数值：200(例外项)，限流阈值 10，表示当热点key为200时，QPS做10处理
+     *
+     * @Author yangsj
+     * @Date 2020/6/3 12:43 上午
+     **/
     @GetMapping("/testHotKey")
-    @SentinelResource(value = "testHotKey",blockHandler = "testHotKeyHandle")
+    @SentinelResource(value = "hotKey",blockHandler = "testHotKeyHandle")
     public String testHotKey(@RequestParam(value = "p1",required = false) String p1,
                              @RequestParam(value = "p2",required = false) String p2){
+        //int age = 10 /0 ;//不满足限流直接抛出异常，满足限流规则直接进入，blockHandler方法
         return "--------testHotKey";
     }
 
