@@ -12,7 +12,7 @@ import org.apache.rocketmq.common.message.MessageExt;
  **/
 public class OrderedConsumer {
     public static void main(String[] args) throws Exception {
-        DefaultMQPushConsumer consumer = new DefaultMQPushConsumer("example_order_group");
+        DefaultMQPushConsumer consumer = new DefaultMQPushConsumer("example_order_customer_group");
 
         consumer.setNamesrvAddr("localhost:9876");
 
@@ -26,7 +26,7 @@ public class OrderedConsumer {
         // 最大消费线程数和最小消费线程数均为1时，表示只允许一个线程消费
         consumer.registerMessageListener((MessageListenerOrderly) (msgs, context) -> {
             for (MessageExt msg : msgs) {
-                System.out.println(new String(msg.getBody())+"Thread:"+Thread.currentThread().getName()+"queueId"+msg.getQueueId());
+                System.out.println(new String(msg.getBody())+" >>>Thread:"+Thread.currentThread().getName()+">>>queueId"+msg.getQueueId());
             }
             return ConsumeOrderlyStatus.SUCCESS;
         });
