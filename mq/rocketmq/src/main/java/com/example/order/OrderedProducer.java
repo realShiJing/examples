@@ -1,14 +1,8 @@
 package com.example.order;
 
 import org.apache.rocketmq.client.producer.DefaultMQProducer;
-import org.apache.rocketmq.client.producer.MQProducer;
-import org.apache.rocketmq.client.producer.MessageQueueSelector;
-import org.apache.rocketmq.client.producer.SendResult;
 import org.apache.rocketmq.common.message.Message;
 import org.apache.rocketmq.common.message.MessageQueue;
-import org.apache.rocketmq.remoting.common.RemotingHelper;
-
-import java.util.List;
 
 /**
  * @Decription TODO
@@ -17,28 +11,24 @@ import java.util.List;
  **/
 public class OrderedProducer {
     public static void main(String[] args) throws Exception {
-        //Instantiate with a producer group name.
-        MQProducer producer = new DefaultMQProducer("example_group_name");
-        //Launch the instance.
-        producer.start();
-        String[] tags = new String[] {"TagA", "TagB", "TagC", "TagD", "TagE"};
-        for (int i = 0; i < 100; i++) {
-            int orderId = i % 10;
-            //Create a message instance, specifying topic, tag and message body.
-            Message msg = new Message("TopicTestjjj", tags[i % tags.length], "KEY" + i,
-                    ("Hello RocketMQ " + i).getBytes(RemotingHelper.DEFAULT_CHARSET));
-            SendResult sendResult = producer.send(msg, new MessageQueueSelector() {
-                @Override
-                public MessageQueue select(List<MessageQueue> mqs, Message msg, Object arg) {
-                    Integer id = (Integer) arg;
-                    int index = id % mqs.size();
-                    return mqs.get(index);
-                }
-            }, orderId);
+        DefaultMQProducer producer = new DefaultMQProducer("example_order_group");
+        // 注册到 Namesrv
+        producer.setNamesrvAddr("localhost:9876");
+        // 要发送的那条消息
+        Message message = new Message("orderTopic","hello RocketMq".getBytes());
 
-            System.out.printf("%s%n", sendResult);
-        }
-        //server shutdown
-        producer.shutdown();
+        producer.send(message,
+                // queue 选择器 ，向 topic 中的哪个 queue 去写消息
+                (list,// 当前 topic 里面包含的所有 queue
+                 msg,// 具体要发的那条消息
+                 o// 对应到 send（） 里的 args
+                ) -> {
+                    // 手动选择一个 queue
+                    MessageQueue queue = list.get(Integer.valueOf((Integer) o));
+                    // 返回过滤出来的 MessageQueue ,消息会发送到这个队列中
+                    return queue;
+        },0,2000);
+        producer.start();
+        //producer.shutdown();
     }
 }
