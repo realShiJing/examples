@@ -99,7 +99,7 @@ public class FlowSlotController {
     /**
      * @Description  热点key限流，必须制定兜底方法，如果没指定，达到限流规则后，前台页面直接返回 Error Page
      *
-     *  资源名：hotKey
+     *  资源名：hotKey,必须用resource 配置
      *  限流模式：QPS
      *  参数索引：0,表示第一个参数
      *  单机阈值：1 ，统计时间窗口 ：1 ，表示接下来1秒内的QPS达到了1就会触发限流
@@ -123,6 +123,11 @@ public class FlowSlotController {
     }
 
 
+    /**
+     * @Description  由资源名称进行限流配置，可以走自定义兜底方法
+     * @Author yangsj
+     * @Date 2020/6/4 11:09 下午
+     **/
     @GetMapping("/byResource")
     @SentinelResource(value = "byResource",blockHandler = "handleException")
     public String byResource()
@@ -134,13 +139,23 @@ public class FlowSlotController {
         return "------------服务不可用";
     }
 
-    @GetMapping("/byUrl")
-    @SentinelResource(value = "byUrl",blockHandler = "handleException")
+    /**
+     * @Description  由url进行限流配置，不会走自定义兜底方法，会默认 Blocked by Sentinel (flow limiting)
+     * @Author yangsj
+     * @Date 2020/6/4 11:10 下午
+     **/
+    @GetMapping("/flowslot/byUrl")
+    @SentinelResource(value = "byUrl",blockHandler = "handleException")//这边虽然配置了 blockHandler 但是没有作用
     public String byUrl()
     {
         return "------------byUrl";
     }
 
+    /**
+     * @Description  为了解决代码耦合度过高的问题，自己将兜底方法放到兜底类中
+     * @Author yangsj
+     * @Date 2020/6/4 11:12 下午
+     **/
     @GetMapping("/customerBlockHandler")
     @SentinelResource(value = "customerBlockHandler",blockHandlerClass = CustomerBlockHandler.class,
     blockHandler = "handlerException")
