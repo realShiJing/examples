@@ -11,6 +11,32 @@ public class BinarySearch {
 
 
     /**
+     * @Description 循环实现二分查找
+     * @Param array 有序数组
+     * @Param value 要查找的值
+     * @Return 要查找的值在有序数组中的位置,未找到返回 -1
+     * @Author yangsj
+     * @Date 2020/6/15 9:24
+     **/
+    public int binarySearch(int[] arry ,int value){
+        int left = 0;
+        int right = arry.length - 1 ;
+        for (;;){
+            if(left == right && value != arry[left]){
+                return -1;
+            }
+            int min = (left + right)/2;
+            if(value > arry[min]){
+                left = min + 1;
+            }else if(value == arry[min]){
+                return min;
+            }else {
+                right = min - 1;
+            }
+        }
+    }
+
+    /**
      * @Description 递归实现二分查找，返回查找到值的索引，若没有返回 -1
      * @Param 有序数组（从小到大排列）
      * @Param 左索引
