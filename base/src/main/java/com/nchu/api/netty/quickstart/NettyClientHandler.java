@@ -1,5 +1,6 @@
 package com.nchu.api.netty.quickstart;
 
+import com.nchu.thread.ThreadA;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
 import io.netty.channel.ChannelHandlerContext;
@@ -31,8 +32,7 @@ public class NettyClientHandler extends ChannelInboundHandlerAdapter {
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
         ByteBuf byteBuf = (ByteBuf) msg;
-        System.out.println("服务端发送数据："+ byteBuf.toString(CharsetUtil.UTF_8));
-        System.out.println("服务器地址："+ ctx.channel().remoteAddress());
+        System.out.println("服务器地址："+ ctx.channel().remoteAddress()+"服务端返回数据："+ byteBuf.toString(CharsetUtil.UTF_8));
     }
 
 
