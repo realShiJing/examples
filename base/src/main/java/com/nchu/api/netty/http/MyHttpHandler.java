@@ -8,7 +8,7 @@ import io.netty.handler.codec.http.*;
 import io.netty.util.CharsetUtil;
 
 /**
- * @Decription TODO
+ * @Decription HttpObject HTTP 协议支持
  * @Author yangsj
  * @Date 2020/6/17 19:00
  **/
