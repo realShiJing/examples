@@ -1,0 +1,26 @@
+syntax = "proto3";
+option optimize_for = SPEED; //加快解析
+option java_outer_classname = "MyDataInfo";//外部类名
+// protobuf 可以使用一个message管理其他message
+message Mymessage{
+  //定义一个枚举类型
+  enum DataType{
+    StudentType = 0 ; //在proto3 要求enum的编号从0开始
+    WorkerType = 1;
+  }
+  //用DataType 表示传的是哪一个枚举类型 ??
+  DataType dataType = 1;
+
+  oneof dataBody{
+    Student student  = 2;//??
+    Worker worker = 3;//??
+  }
+}
+message Student{
+  int32 id = 1;
+  string name = 2;
+}
+message Worker{
+  int32 age = 1;
+  string salary = 2;
+}
