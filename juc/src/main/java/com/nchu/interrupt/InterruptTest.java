@@ -159,18 +159,20 @@ public class InterruptTest {
     public void testInterrupted() throws InterruptedException {
         Thread thread = new Thread(()->{
             synchronized (this){
-                try {
-                    Thread.sleep(1000);
-                } catch (InterruptedException e) {
-                    // 在该线程处于 TIMED_WAITING 状态时，中断该线程，会抛出 InterruptedException异常，该线程的中断标志位被清空
-                    System.out.println("catch InterruptedException");
+                while (true){
+                    if(Thread.interrupted()){
+                        System.out.println("线程已被中断，中断标识被 interrupted 重置为false");
+                        //手动结束当前线程生命
+                        break;
+                    }
                 }
             }
         });
         // 开启线程
         thread.start();
-        thread.interrupt();
         System.out.println(thread.isInterrupted());
-        System.out.println(Thread.interrupted());
+        thread.interrupt();
+        Thread.sleep(1000);
+        System.out.println(thread.isInterrupted());
     }
 }
