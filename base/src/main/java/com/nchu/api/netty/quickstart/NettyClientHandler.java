@@ -1,6 +1,5 @@
 package com.nchu.api.netty.quickstart;
 
-import com.nchu.thread.ThreadA;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
 import io.netty.channel.ChannelHandlerContext;
