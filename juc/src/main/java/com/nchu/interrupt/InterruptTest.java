@@ -3,6 +3,7 @@ package com.nchu.interrupt;
 import org.junit.Test;
 
 import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.locks.LockSupport;
 
 /**
  * @Decription 测试线程中断相关
@@ -198,9 +199,26 @@ public class InterruptTest {
         System.out.println(thread.isInterrupted());
         thread.interrupt();
         System.out.println(thread.isInterrupted());
+    }
 
+    /**
+     * @Description  中断可以唤醒被park的线程继续执行
+     * @Author yangsj
+     * @Date 2020/7/18 8:26 下午
+     **/
+    @Test
+    public void testPark() throws InterruptedException{
 
+        Thread thread = new Thread(()->{
+            System.out.println("线程被park前");
+            LockSupport.park(this);
+            System.out.println("线程park中被中断后");
 
+        });
+        thread.start();
+        System.out.println(thread.isInterrupted());
+        thread.interrupt();
+        System.out.println(thread.isInterrupted());
     }
 
 
