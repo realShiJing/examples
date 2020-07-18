@@ -2,6 +2,8 @@ package com.nchu.interrupt;
 
 import org.junit.Test;
 
+import java.util.concurrent.LinkedBlockingQueue;
+
 /**
  * @Decription 测试线程中断相关
  * @Author yangsj
@@ -175,4 +177,31 @@ public class InterruptTest {
         Thread.sleep(1000);
         System.out.println(thread.isInterrupted());
     }
+
+    /**
+     * @Description  阻塞队列阻塞获取任务时，被中断，会抛出异常
+     * @Author yangsj
+     * @Date 2020/7/11 8:26 下午
+     **/
+    @Test
+    public void testQueue() throws InterruptedException{
+        LinkedBlockingQueue blockingQueue = new LinkedBlockingQueue(10);
+
+        Thread thread = new Thread(()->{
+            try {
+                blockingQueue.take();
+            } catch (InterruptedException e) {
+                System.out.println("阻塞获取发生异常!");
+            }
+        });
+        thread.start();
+        System.out.println(thread.isInterrupted());
+        thread.interrupt();
+        System.out.println(thread.isInterrupted());
+
+
+
+    }
+
+
 }
