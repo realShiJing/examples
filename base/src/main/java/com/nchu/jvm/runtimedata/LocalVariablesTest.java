@@ -12,6 +12,10 @@ public class LocalVariablesTest {
 
     /**
      * @Description 此方法局部变量表中有三个值
+     *    Start  Length  Slot  Name   Signature
+     *             0      16     0  args   [Ljava/lang/String;
+     *             8       8     1 localVariables   Lcom/nchu/jvm/runtimedata/LocalVariablesTest;
+     *            11       5     2   num   I
      * @Author yangsj
      * @Date 2020/8/11 11:00
      **/
