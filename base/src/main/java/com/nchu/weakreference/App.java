@@ -25,7 +25,7 @@ public class App {
         WeakReference<Apple> weakReference = new WeakReference<>(apple);
         int i=0;
         // 即使有 apple 引用指向对象, 且 apple 是一个strong reference, weak reference weakReference指向的对象仍然被回收了.
-        // 这是因为java的编译器在发现进入while循环之后, car 已经没有被使用了, 所以进行了优化
+        // 这是因为java的编译器在发现进入while循环之后, apple 已经没有被使用了, 所以进行了优化
         while (true){
 //           如果此方法为空, 那么说明weakReference指向的对象已经被回收了.
             if(weakReference.get() != null ){
