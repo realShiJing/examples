@@ -1,4 +1,4 @@
-package com.nchu.jvm.heap;
+package com.nchu.jvm.heap.escapeanalysis;
 
 /**
  * @Decription 逃逸分析
