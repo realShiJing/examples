@@ -203,6 +203,15 @@ public class StringTableTest {
          * 对象4：String        字符串"b"
          * 对象5：常量池 "b"
          * 对象6：StringBuilder.toString(),因为该方法是使永字符数组创建String对象，所以不会添加到常量池中
+         * Class StringBuilder{
+         *  char[] value;
+         *   @Override
+         *   public String toString() {
+         *       // Create a copy, don't share the array
+         *       return new String(value, 0, count);
+         *   }
+         * }
+         *
          *
          */
         String str = new String("a") + new String("b");
