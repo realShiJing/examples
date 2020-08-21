@@ -1,4 +1,4 @@
-package com.nchu.weakreference;
+package com.nchu.reference;
 
 import com.nchu.bean.Apple;
 import org.junit.Test;
