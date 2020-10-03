@@ -1,4 +1,6 @@
-package com.nchu.java8.jdk.longadder;/*
+/*
+package com.nchu.java8.jdk.longadder;*/
+/*
  * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
  *
  * This code is free software; you can redistribute it and/or modify it
@@ -20,8 +22,10 @@ package com.nchu.java8.jdk.longadder;/*
  * Please contact Oracle, 500 Oracle Parkway, Redwood Shores, CA 94065 USA
  * or visit www.oracle.com if you need additional information or have any
  * questions.
- */
+ *//*
 
+
+*/
 /*
  * This file is available under and governed by the GNU General Public
  * License version 2 only, as published by the Free Software Foundation.
@@ -31,20 +35,24 @@ package com.nchu.java8.jdk.longadder;/*
  * Written by Doug Lea with assistance from members of JCP JSR-166
  * Expert Group and released to the public domain, as explained at
  * http://creativecommons.org/publicdomain/zero/1.0/
- */
+ *//*
+
 
 import java.util.function.LongBinaryOperator;
 import java.util.function.DoubleBinaryOperator;
 import java.util.concurrent.ThreadLocalRandom;
 
+*/
 /**
  * A package-local class holding common representation and mechanics
  * for classes supporting dynamic striping on 64bit values. The class
  * extends Number so that concrete subclasses must publicly do so.
- */
+ *//*
+
 @SuppressWarnings("serial")
 abstract class Striped64 extends Number {
-    /*
+    */
+/*
      * This class maintains a lazily-initialized table of atomically
      * updated variables, plus an extra "base" field. The table size
      * is a power of two. Indexing uses masked per-thread hash codes.
@@ -108,14 +116,17 @@ abstract class Striped64 extends Number {
      * under the assumption that for long-running instances, observed
      * contention levels will recur, so the cells will eventually be
      * needed again; and for short-lived ones, it does not matter.
-     */
+     *//*
 
-    /**
+
+    */
+/**
      * Padded variant of AtomicLong supporting only raw accesses plus CAS.
      *
      * JVM intrinsics note: It would be possible to use a release-only
      * form of CAS here, if it were provided.
-     */
+     *//*
+
     @sun.misc.Contended static final class Cell {
         volatile long value;
         Cell(long x) { value = x; }
@@ -138,66 +149,84 @@ abstract class Striped64 extends Number {
         }
     }
 
-    /** Number of CPUS, to place bound on table size */
+    */
+/** Number of CPUS, to place bound on table size *//*
+
     //表示当前计算机CPU数量，什么用？ 控制cells数组长度的一个关键条件
     static final int NCPU = Runtime.getRuntime().availableProcessors();
 
-    /**
+    */
+/**
      * Table of cells. When non-null, size is a power of 2.
-     */
+     *//*
+
     transient volatile Cell[] cells;
 
-    /**
+    */
+/**
      * Base value, used mainly when there is no contention, but also as
      * a fallback during table initialization races. Updated via CAS.
      * 没有发生过竞争时，数据会累加到 base上 | 当cells扩容时，需要将数据写到base中
-     */
+     *//*
+
     transient volatile long base;
 
-    /**
+    */
+/**
      * Spinlock (locked via CAS) used when resizing and/or creating Cells.
      * 初始化cells或者扩容cells都需要获取锁，0 表示无锁状态，1 表示其他线程已经持有锁了
-     */
+     *//*
+
     transient volatile int cellsBusy;
 
-    /**
+    */
+/**
      * Package-private default constructor
-     */
+     *//*
+
     Striped64() {
     }
 
-    /**
+    */
+/**
      * CASes the base field.
-     */
+     *//*
+
     final boolean casBase(long cmp, long val) {
         return UNSAFE.compareAndSwapLong(this, BASE, cmp, val);
     }
 
-    /**
+    */
+/**
      * CASes the cellsBusy field from 0 to 1 to acquire lock.
      * 通过CAS方式获取锁
-     */
+     *//*
+
     final boolean casCellsBusy() {
         return UNSAFE.compareAndSwapInt(this, CELLSBUSY, 0, 1);
     }
 
-    /**
+    */
+/**
      * Returns the probe value for the current thread.
      * Duplicated from ThreadLocalRandom because of packaging restrictions.
      *
      * 获取当前线程的Hash值
-     */
+     *//*
+
     static final int getProbe() {
         return UNSAFE.getInt(Thread.currentThread(), PROBE);
     }
 
-    /**
+    */
+/**
      * Pseudo-randomly advances and records the given probe value for the
      * given thread.
      * Duplicated from ThreadLocalRandom because of packaging restrictions.
      *
      * 重置当前线程的Hash值
-     */
+     *//*
+
     static final int advanceProbe(int probe) {
         probe ^= probe << 13;   // xorshift
         probe ^= probe >>> 17;
@@ -206,7 +235,8 @@ abstract class Striped64 extends Number {
         return probe;
     }
 
-    /**
+    */
+/**
      * Handles cases of updates involving initialization, resizing,
      * creating new Cells, and/or contention. See above for
      * explanation. This method suffers the usual non-modularity
@@ -217,7 +247,8 @@ abstract class Striped64 extends Number {
      * @param fn the update function, or null for add (this convention
      * avoids the need for an extra field or function in LongAdder).
      * @param wasUncontended false if CAS failed before call
-     */
+     *//*
+
     //都有哪些情况会调用？
     //1.true->说明 cells 未初始化，也就是多线程写base发生竞争了[重试|初始化cells]
     //2.true-> 说明当前线程对应下标的cell为空，需要创建 longAccumulate 支持
@@ -368,12 +399,14 @@ abstract class Striped64 extends Number {
         }
     }
 
-    /**
+    */
+/**
      * Same as longAccumulate, but injecting long/double conversions
      * in too many places to sensibly merge with long version, given
      * the low-overhead requirements of this class. So must instead be
      * maintained by copy/paste/adapt.
-     */
+     *//*
+
     final void doubleAccumulate(double x, DoubleBinaryOperator fn,
                                 boolean wasUncontended) {
         int h;
@@ -487,3 +520,4 @@ abstract class Striped64 extends Number {
     }
 
 }
+*/
