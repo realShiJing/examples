@@ -8,7 +8,7 @@
         <version>2.3.0.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <artifactId>example.cloudaibaba.nacos.provider02</artifactId>
+    <artifactId>example.cloudalibaba.nacos.provider02</artifactId>
 
     <properties>
         <java.version>1.8</java.version>
