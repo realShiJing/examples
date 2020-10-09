@@ -15,6 +15,7 @@
     <modules>
         <module>quickstart</module>
         <module>boot</module>
+        <module>spi</module>
     </modules>
 
 </project>
