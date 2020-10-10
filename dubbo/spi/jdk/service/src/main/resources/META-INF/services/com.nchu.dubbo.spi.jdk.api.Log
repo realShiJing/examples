@@ -1,0 +1,2 @@
+com.nchu.dubbo.spi.jdk.service.impl.Log4j
+com.nchu.dubbo.spi.jdk.service.impl.Logback

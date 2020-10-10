@@ -1,6 +1,7 @@
-package com.nchu.dubbo.spi.impl;
+package com.nchu.dubbo.spi.jdk.service.impl;
 
-import com.nchu.dubbo.spi.Log;
+
+import com.nchu.dubbo.spi.jdk.api.Log;
 
 /**
  * @Decription 自定义 Logback 日志打印实现

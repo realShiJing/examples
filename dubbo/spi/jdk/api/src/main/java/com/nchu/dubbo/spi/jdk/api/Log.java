@@ -1,4 +1,4 @@
-package com.nchu.dubbo.spi;
+package com.nchu.dubbo.spi.jdk.api;
 
 /**
  * @Description  日志接口

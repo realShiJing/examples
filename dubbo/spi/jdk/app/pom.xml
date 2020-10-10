@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>example.dubbo.spi.jdk</artifactId>
+        <groupId>com.nchu</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>example.dubbo.spi.jdk.app</artifactId>
+    <dependencies>
+        <!--引入接口和自定义第三方jar包-->
+        <dependency>
+            <groupId>com.nchu</groupId>
+            <artifactId>example.dubbo.spi.jdk.api</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.nchu</groupId>
+            <artifactId>example.dubbo.spi.jdk.service</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
+
+</project>
