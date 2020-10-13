@@ -9,13 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>example.dubbo.spi</artifactId>
+    <artifactId>example.dubbo.filter</artifactId>
 
-    <packaging>pom</packaging>
-
-    <modules>
-        <module>jdk</module>
-        <module>dubbo</module>
-    </modules>
 
 </project>

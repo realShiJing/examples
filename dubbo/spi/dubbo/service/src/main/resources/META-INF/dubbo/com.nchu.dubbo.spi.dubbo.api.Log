@@ -1,0 +1,2 @@
+log4j=com.nchu.dubbo.spi.dubbo.service.impl.Log4j
+logback=com.nchu.dubbo.spi.dubbo.service.impl.Logback
