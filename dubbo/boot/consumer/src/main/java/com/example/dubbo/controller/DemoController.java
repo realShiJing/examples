@@ -13,7 +13,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class DemoController {
 
-    @Reference(version = "2.0.0")
+    //使用自定义负载均衡器
+    @Reference(version = "2.0.0", loadbalance = "onlyFirst")
     DemoService demoService;
 
     @RequestMapping("/sayHello")
