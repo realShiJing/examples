@@ -16,6 +16,7 @@
         <module>quickstart</module>
         <module>boot</module>
         <module>spi</module>
+        <module>filter</module>
     </modules>
 
 </project>
