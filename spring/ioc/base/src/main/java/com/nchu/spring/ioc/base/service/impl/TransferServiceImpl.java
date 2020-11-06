@@ -36,7 +36,7 @@ public class TransferServiceImpl implements TransferService {
 
             accountDao.updateAccountByCardNo(from);
             // 模拟异常，测试转账事务一致性
-            int a = 10 / 0 ;
+            //int a = 10 / 0 ;
             accountDao.updateAccountByCardNo(to);
             //conn.commit();//提交事务
         }catch (Exception e){

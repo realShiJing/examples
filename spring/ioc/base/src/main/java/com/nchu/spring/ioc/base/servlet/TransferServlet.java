@@ -32,7 +32,7 @@ public class TransferServlet extends HttpServlet {
     private ProxyFactory proxyFactory = (ProxyFactory) BeanFactory.getBean("proxyFactory");
 
     // 从代理工厂中获取经过事务处理的服务
-    private TransferService transferService = (TransferService) proxyFactory.getJdkProxy(BeanFactory.getBean("transferService"));
+    private TransferService transferService = (TransferService) proxyFactory.getCglibProxy(BeanFactory.getBean("transferService"));
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
