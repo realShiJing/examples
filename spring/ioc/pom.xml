@@ -15,6 +15,7 @@
     <modules>
         <module>base</module>
         <module>xml</module>
+        <module>xmlano</module>
     </modules>
 
 
