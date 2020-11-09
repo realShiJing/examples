@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+        xmlns:tx="http://www.springframework.org/schema/tx"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/tx
+        https://www.springframework.org/schema/tx/spring-tx.xsd">
+    <!--服务类-->
+    <bean id = "transferService" class = "com.nchu.spring.ioc.xml.service.impl.TransferServiceImpl">
+        <!--name:注入属性的方法名-;ref:注入属性的id-->
+        <property name = "AccountDao" ref = "accountDao"></property>
+       <!-- <property name="ConnectionUtils" ref="connectionUtils"></property>-->
+    </bean>
+    <!--数据库交互-->
+    <bean id = "accountDao" class="com.nchu.spring.ioc.xml.dao.impl.JdbcAccountDaoImpl">
+        <property name="ConnectionUtils" ref="connectionUtils"></property>
+    </bean>
+    <!--数据连接管理-->
+    <bean id="connectionUtils" class="com.nchu.spring.ioc.xml.utils.ConnectionUtils"></bean>
+    <!--事务管理器-->
+    <bean id="transactionManager" class="com.nchu.spring.ioc.xml.transaction.TransactionManager">
+        <property name="ConnectionUtils" ref="connectionUtils"></property>
+    </bean>
+    <!--代理工厂-->
+    <bean id="proxyFactory" class="com.nchu.spring.ioc.xml.factory.ProxyFactory">
+        <property name="TransactionManager" ref="transactionManager"></property>
+    </bean>
+    <!--使用工厂Bean 创建自定义Bean    -->
+    <bean id="account" class="com.nchu.spring.ioc.xml.factory.AccountFactory">
+        <property name="account" value="yangsj,68787899,1000"/>
+    </bean>
+</beans>
