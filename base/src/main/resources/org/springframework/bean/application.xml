@@ -37,4 +37,11 @@
         <property name="name" value="${testbean.name}"></property>
     </bean>
 
+
+    <bean id="methodReplace" class="com.spring.test.replacemethod.MethodReplace"/>
+
+    <bean id="method" class="com.spring.test.replacemethod.Method">
+        <replaced-method name="display" replacer="methodReplace"/>
+    </bean>
+
 </beans>
