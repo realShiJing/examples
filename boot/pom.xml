@@ -13,5 +13,7 @@
     <modules>
         <module>demo</module>
         <module>annotation</module>
+        <module>starter</module>
+        <module>base</module>
     </modules>
 </project>
