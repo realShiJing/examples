@@ -15,5 +15,6 @@
         <module>annotation</module>
         <module>starter</module>
         <module>base</module>
+        <module>mybatis</module>
     </modules>
 </project>
