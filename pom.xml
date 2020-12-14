@@ -21,6 +21,7 @@
         <module>cloud</module>
         <module>cloudalibaba</module>
         <module>spring</module>
+        <module>transaction</module>
     </modules>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
