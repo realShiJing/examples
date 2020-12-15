@@ -15,6 +15,7 @@
         <module>discover-server</module>
         <module>seata</module>
         <module>tcc</module>
+        <module>msg</module>
     </modules>
 
     <dependencyManagement>
