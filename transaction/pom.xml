@@ -16,6 +16,7 @@
         <module>seata</module>
         <module>tcc</module>
         <module>msg</module>
+        <module>notifymsg</module>
     </modules>
 
     <dependencyManagement>
