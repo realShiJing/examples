@@ -23,6 +23,7 @@
         <module>spring</module>
         <module>transaction</module>
         <module>cat</module>
+        <module>apollo</module>
     </modules>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
