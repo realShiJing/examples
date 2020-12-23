@@ -13,6 +13,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>quickstart</module>
+        <module>profiles</module>
     </modules>
 
 

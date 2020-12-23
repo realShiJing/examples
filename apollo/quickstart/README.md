@@ -31,7 +31,8 @@ server.servlet.context-path = /quickstart
 ```
 
 # 参考
-http://www.iocoder.cn/Spring-Boot/config-apollo/?github
+极简入门 http://www.iocoder.cn/Apollo/install/
+SpringBoot集成 http://www.iocoder.cn/Spring-Boot/config-apollo/?github
 
 # 官方文档
-https://github.com/ctripcorp/apollo/wiki/Quick-Start
+快速开始 https://github.com/ctripcorp/apollo/wiki/Quick-Start
