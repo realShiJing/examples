@@ -15,6 +15,7 @@
         <module>lab</module>
         <module>quickstart</module>
         <module>logback</module>
+        <module>springmvc</module>
     </modules>
 
 
