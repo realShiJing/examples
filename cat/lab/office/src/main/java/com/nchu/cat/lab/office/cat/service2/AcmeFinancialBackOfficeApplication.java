@@ -3,10 +3,6 @@ package com.nchu.cat.lab.office.cat.service2;
 import com.dianping.cat.Cat;
 import com.dianping.cat.CatConstants;
 import com.dianping.cat.message.Transaction;
-
-
-
-
 import com.nchu.cat.lab.office.cathelper.CatRestInterceptor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -22,8 +18,6 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.DefaultResponseErrorHandler;
 import org.springframework.web.client.RestTemplate;
 
-import javax.annotation.PostConstruct;
-import javax.annotation.PreDestroy;
 import java.io.IOException;
 import java.lang.invoke.MethodHandles;
 import java.util.Collections;
@@ -68,7 +62,7 @@ public class AcmeFinancialBackOfficeApplication {
 
 	@RequestMapping("/readtimeout")
 	public String connectionTimeout() throws InterruptedException {
-		Transaction t = Cat.newTransaction(CatConstants.TYPE_CALL, "connectionTimeout");
+		Transaction t = Cat.newTransaction(CatConstants.TYPE_URL, "connectionTimeout");
 		Thread.sleep(500);
 		try {
 			log.info("Calling a missing service");

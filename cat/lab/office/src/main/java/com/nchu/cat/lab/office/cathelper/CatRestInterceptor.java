@@ -1,7 +1,9 @@
 package com.nchu.cat.lab.office.cathelper;
 
-import java.io.IOException;
-
+import com.dianping.cat.Cat;
+import com.dianping.cat.Cat.Context;
+import com.dianping.cat.CatConstants;
+import com.dianping.cat.message.Transaction;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpRequest;
 import org.springframework.http.client.ClientHttpRequestExecution;
@@ -9,10 +11,7 @@ import org.springframework.http.client.ClientHttpRequestInterceptor;
 import org.springframework.http.client.ClientHttpResponse;
 import org.springframework.stereotype.Component;
 
-import com.dianping.cat.Cat;
-import com.dianping.cat.Cat.Context;
-import com.dianping.cat.CatConstants;
-import com.dianping.cat.message.Transaction;
+import java.io.IOException;
 
 @Component
 public class CatRestInterceptor implements ClientHttpRequestInterceptor {
@@ -20,8 +19,8 @@ public class CatRestInterceptor implements ClientHttpRequestInterceptor {
 	@Override
 	public ClientHttpResponse intercept(HttpRequest request, byte[] body, ClientHttpRequestExecution execution)
 			throws IOException {
-
-		Transaction t = Cat.newTransaction(CatConstants.TYPE_CALL, request.getURI().toString());
+		//调用类型设置为远程调用
+		Transaction t = Cat.newTransaction(CatConstants.TYPE_REMOTE_CALL, request.getURI().toString());
 
 		try {
 			HttpHeaders headers = request.getHeaders();

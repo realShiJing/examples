@@ -17,6 +17,7 @@ public class AcmeFinancialCustomerApplication {
 
 	@RequestMapping("/startOfCustomer-Microservice")
 	public String service4MethodInController() throws InterruptedException {
+		//模拟远程调用超时
 		Thread.sleep(2000);
 		log.info("Hello from Acme's Customer Microservice");
 		return "Hello from Acme's Customer Microservice";

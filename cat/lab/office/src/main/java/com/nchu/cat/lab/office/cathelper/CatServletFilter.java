@@ -36,14 +36,14 @@ public class CatServletFilter implements Filter {
                 url = urlPattern;
             }
         }
-
+        // 恢复远程调用的CAT调用链上下文
         CatContext catContext = new CatContext();
         catContext.addProperty(Cat.Context.ROOT, request.getHeader(CatHttpConstants.CAT_HTTP_HEADER_ROOT_MESSAGE_ID));
         catContext.addProperty(Cat.Context.PARENT, request.getHeader(CatHttpConstants.CAT_HTTP_HEADER_PARENT_MESSAGE_ID));
         catContext.addProperty(Cat.Context.CHILD, request.getHeader(CatHttpConstants.CAT_HTTP_HEADER_CHILD_MESSAGE_ID));
         Cat.logRemoteCallServer(catContext);
         
-        Transaction t = Cat.newTransaction(CatConstants.TYPE_SERVICE, url);
+        Transaction t = Cat.newTransaction(CatConstants.TYPE_URL, url);
 
         try {
 
