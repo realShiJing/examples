@@ -63,6 +63,15 @@
             <artifactId>dubbo-spring-boot-starter</artifactId>
             <version>0.2.0</version>
         </dependency>
+
+        <!--该依赖引入的前提是
+             将项目 https://github.com/dianping/cat/tree/master/integration/dubbo install 安装到本地仓库-->
+        <!--如不需要CAT 监控可注释掉该依赖-->
+        <dependency>
+            <groupId>net.dubboclub</groupId>
+            <artifactId>cat-monitor</artifactId>
+            <version>0.0.6</version>
+        </dependency>
     </dependencies>
 
     <build>
