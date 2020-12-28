@@ -1,7 +1,8 @@
 本案例 分别演示了 Sentinel  API手动配置、注解、整合SpringMVC、整合Apollo数据源动态规则配置
 
 # Sentinel 整合 Apollo 数据源
-1.首先引入  Sentinel 对 Apollo 作为数据源的支持
+1. 首先引入  Sentinel 对 Apollo 作为数据源的支持
+
     ```xml
             <dependency>
                 <groupId>com.alibaba.csp</groupId>
