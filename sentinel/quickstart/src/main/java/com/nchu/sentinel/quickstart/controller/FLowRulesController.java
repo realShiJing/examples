@@ -158,4 +158,14 @@ public class FLowRulesController {
         return "Hello MVC Sentinel！";
     }
 
+    /**
+     * @Description  Sentinel 整合 Apollo 数据源进行动态规则配置
+     * @Author yangsj
+     * @Date 2020/12/28 下午10:26
+     **/
+    @GetMapping("/apollo")
+    public String echo() {
+        return "Hello Apollo Sentinel";
+    }
+
 }

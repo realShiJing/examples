@@ -45,5 +45,12 @@
             <artifactId>sentinel-spring-webmvc-adapter</artifactId>
             <version>1.8.0</version>
         </dependency>
+        <!-- Sentinel 对 Apollo 作为数据源的支持 -->
+        <dependency>
+            <groupId>com.alibaba.csp</groupId>
+            <artifactId>sentinel-datasource-apollo</artifactId>
+            <version>1.8.0</version>
+        </dependency>
+
     </dependencies>
 </project>

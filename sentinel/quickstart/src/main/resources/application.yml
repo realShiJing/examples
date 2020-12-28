@@ -1,2 +1,6 @@
 server:
-  port: 8081
+  port: 9081
+
+spring:
+  application:
+    name: sentinel-apollo-demo # apollo配置中心需要定义appId
