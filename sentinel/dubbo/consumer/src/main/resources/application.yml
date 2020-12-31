@@ -1,0 +1,17 @@
+# 指定 消费者端口，避免和Sentinel控制台冲突
+server:
+  port: 8081
+
+# dubbo 配置项，对应 DubboConfigurationProperties 配置类
+dubbo:
+  # Dubbo 应用配置
+  application:
+    name: user-service-consumer  # 应用名
+  # Dubbo 注册中心配置
+  registry:
+    address: zookeeper://127.0.0.1:2181 # 注册中心地址
+  # Dubbo 消费者配置
+  consumer:
+    timeout: 1000  # 【重要】远程服务调用超时时间，单位：毫秒。
+    UserRpcService:
+      version: 1.0.0 # 服务提供者版本
