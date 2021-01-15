@@ -1,11 +1,10 @@
 package com.nchu.java8;
 
+import com.google.common.collect.Lists;
+import com.nchu.bean.Person;
 import org.junit.Test;
 
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 import java.util.stream.Collectors;
 
 /**
@@ -304,5 +303,37 @@ public class StreamDemo {
         System.out.println(any);
     }
 
+
+
+    /**
+     * @Description StreamToMap 填坑
+     * @Author yangsj
+     * @Date 2021/1/13 11:37
+     **/
+    @Test
+    public void streamToMap(){
+        ArrayList<Person> persons = Lists.newArrayList();
+        persons.add(new Person("张三", 10));
+        persons.add(new Person("李四", 12));
+        persons.add(new Person("王五", null));
+        //  如果Value 为null 会导致 抛出空指针异常,因为会调用HashMap 的merge方法，该方法在 value 为null时会抛出异常
+        //Map<String, Integer> collect = persons.stream().collect(Collectors.toMap(Person::getName, Person::getAge));
+        // 解决办法1 ：使用collect(Supplier<R> supplier, BiConsumer<R, ? super T> accumulator, BiConsumer<R, R> combiner)方法构建
+        Map<String, Integer> collect = persons.stream().collect(HashMap::new,
+                (n, v) -> n.put(v.getName(), v.getAge()), HashMap::putAll);
+
+        Set<Map.Entry<String, Integer>> entries = collect.entrySet();
+        for (Map.Entry<String, Integer> entry : entries) {
+            System.out.println(entry.getKey()+":"+entry.getValue());
+
+        }
+       // 解决办法2：使用Optional对值进行包装
+        Map<String, Optional<Integer>> collectOpt = persons.stream().collect(Collectors.toMap(Person::getName, person -> Optional.ofNullable(person.getAge())));
+        Set<Map.Entry<String, Optional<Integer>>> entries1 = collectOpt.entrySet();
+        for (Map.Entry<String, Optional<Integer>> optionalEntry : entries1) {
+            System.out.println(optionalEntry.getKey()+":"+optionalEntry.getValue().orElse(0));
+        }
+
+    }
 
 }
