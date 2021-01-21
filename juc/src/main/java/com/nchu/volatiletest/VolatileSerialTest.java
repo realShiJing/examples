@@ -13,6 +13,9 @@ import java.util.Set;
  * 但是，如果操作之间不存在数据依赖关系，这些操作就可能被编译器和处理器重排序。
  *
  * happens-before 原则 ：前一个操作的执行结果对后一个操作可见的原则
+ *
+ * hotspot虚拟机C++源码 是使用 StoreStore、LoadLoad、StoreLoad、LoadStore内存屏障
+ * 最终执行的汇编指令是 给vloatile 修饰的变量加上 lock指令前缀
  * @Description:
  * @Author: yangsj
  * @Date:Create： 2021/1/21 10:29
