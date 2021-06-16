@@ -1035,6 +1035,16 @@ public class APP {
         String format = decimalFormat.format(Long.parseLong("1232312"));
         System.out.println(format);
     }
+
+
+
+    @Test
+    public void test46(){
+
+        List<String> strings = Arrays.asList("1", "2", "4");
+
+        System.out.println(JSONObject.toJSONString(strings));
+    }
 }
 
 
