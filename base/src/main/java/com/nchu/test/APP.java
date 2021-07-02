@@ -1,6 +1,8 @@
 package com.nchu.test;
 
+import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import com.alibaba.fastjson.TypeReference;
 import com.google.common.collect.BiMap;
 import com.google.common.collect.HashBiMap;
 import com.nchu.base.common.Week;
@@ -1044,6 +1046,12 @@ public class APP {
         List<String> strings = Arrays.asList("1", "2", "4");
 
         System.out.println(JSONObject.toJSONString(strings));
+
+        String map = "{\"key\":\"value\"}";
+
+        HashMap<String, Object> stringObjectHashMap = JSON.parseObject(map, new TypeReference<HashMap<String, Object>>() {
+        });
+        System.out.println(stringObjectHashMap.get("key"));
     }
 }
 
